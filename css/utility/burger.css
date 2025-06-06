@@ -1,0 +1,19 @@
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 1100;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+@media (max-width: 1024px) {
+    .burger-menu {
+        display: flex;
+    }
+}

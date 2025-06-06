@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "user": "Admin",
+      "mot_de_passe": "password",
+      "mot_de_passe_hash": "hashed_admin_password",
+      "est_membre": true,
+      "est_admin": true,
+      "date_creation": "2025-06-05T10:05:00Z"
+    },
+    {
+      "id": "1",
+      "user": "Dupont",
+      "mot_de_passe": "password",
+      "mot_de_passe_hash": "hashed_password_1",
+      "est_membre": true,
+      "est_admin": false
+    }
+  ],
+  "films": [
+    {
+      "id": "film_0",
+      "titre": "Aventure au sommet",
+      "stock_places": 48,
+      "prix_place": "price"
+    }
+  ],
+  "paniers": [
+    {
+      "id": "panier_001",
+      "id_utilisateur": "1",
+      "id_film": "film_0",
+      "nombre_places": 2,
+      "prix_total": 24.00
+    }
+  ],
+  "reservations": [
+    {
+      "id": "res_001",
+      "id_utilisateur": "0",
+      "id_film": "film_0",
+      "nombre_places": 2,
+      "prix_total": 24.00,
+      "date_reservation": "2025-06-05T10:30:00Z"
+    }
+  ]
+}

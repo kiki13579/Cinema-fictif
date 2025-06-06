@@ -1,0 +1,5 @@
+Éditeur de code : Visual Studio Code
+Navigateur Web moderne : Opera GX
+Serveur local léger : Live Serveur
+Serveur distant: PlanetHoster
+Git : 

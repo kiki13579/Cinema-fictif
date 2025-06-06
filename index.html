@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Un site de démonstration pour le projet de cinéma">
+    <meta name="author" content="Kamihate">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="./css/root.css">
+    <script src="./js/utility/burger.js" defer type="module"></script>
+    <title>Cinéma Fictif - Acceuil</title>
+</head>
+<body class="body-card">
+    <header class="header-card">
+        <h1 class="header-h1">Cinéma Fictif</h1>
+        <nav class="header-nav">
+            <div class="desktop-menu">
+                <a href="./index.html" class="list-link -activeall">Accueil</a>
+                <a href="./html/signup.html" class="list-link  -disabledformember -disabledforadmin">Inscription</a>
+                <a href="./html/login.html" class="list-link -disabledformember -disabledforadmin">Connexion</a>
+                <a href="./html/member_space.html" class="list-link -disabledfornotmember -disabledforadmin">Espace membre</a>
+                <a href="./html/admin_panel.html" class="list-link -disabledfornotmember -disabledfornotadmin">Panneau d'administration</a>
+                <a href="./index.html" class="list-link -disabledfornotmember -disabledfornotadmin">Deconnexion</a>
+            </div>
+            <div class="mobile-nav hidden">
+                <a href="./index.html" class="list-link -activeall">Accueil</a>
+                <a href="./html/signup.html" class="list-link  -disabledformember -disabledforadmin">Inscription</a>
+                <a href="./html/login.html" class="list-link -disabledformember -disabledforadmin">Connexion</a>
+                <a href="./html/member_space.html" class="list-link -disabledfornotmember -disabledforadmin">Espace membre</a>
+                <a href="./html/admin_panel.html" class="list-link -disabledfornotmember -disabledfornotadmin">Panneau d'administration</a>
+                <a href="./index.html" class="list-link -disabledfornotmember -disabledfornotadmin">Deconnexion</a>
+            </div>
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="main-card">
+        <section class="section-card section-card-hero">
+            <h1 class="section-h1">Films à l'affiche</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h2 class="card-title">Destination Final Bloodlines</h2>
+                    <img src="./asset/img/destination_final_bloodlines.webp" alt="destination_final_bloodlines" class="card-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card section-card-news">
+            <h1 class="section-h1">Prochaines sorties</h1>
+            <div class="carousel-container">
+                <div class="carousel-card">
+                    <h2 class="card-title">Destination Final Bloodlines</h2>
+                    <img src="#" alt="#" class="card-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card section-card-rec">
+            <h1 class="section-h1">Notre top 5</h1>
+            <p></p>
+        </section>
+    </main>
+
+    <footer class="footer-card">
+        <img src="./asset/img/logo.png" alt="Logo Cinéma Cgr" class="logo-img">
+        <div class="footer-links">
+            <a href="#" class="footer-link">A propos de nous</a>
+            <a href="#" class="footer-link">Mentions légales</a>
+            <a href="#" class="footer-link">RGPD</a>
+            <a href="#" class="footer-link">CGU</a>
+            <a href="#" class="footer-link">Copyright</a>
+        </div>
+        <p>&copy; 05/06/2025 Cinéma Cgr. Tous droits réservés.</p>
+    </footer>
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <p>Contenu de la modale</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
