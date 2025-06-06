@@ -1,0 +1,32 @@
+# Définir le fichier par défaut
+DirectoryIndex index.html
+
+# Interdire l'indexation des dossiers
+Options -Indexes
+
+# Rediriger les erreurs 404 vers index.html (utile pour une SPA)
+ErrorDocument 404 /index.html
+
+# Forcer le charset en UTF-8
+AddDefaultCharset UTF-8
+
+# edirection vers HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Rediriger toutes les URL vers index.html (SPA support pour React, Vue, etc.)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Mise en cache des fichiers statiques
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 1 day"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
