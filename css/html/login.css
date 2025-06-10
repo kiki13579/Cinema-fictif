@@ -7,9 +7,26 @@
     padding: 2rem;
     margin: 2rem;
     border-radius: var(--border-radius);
+    width: 50%;
 }
 p {
     font-size: 1.2rem;
     margin: 0.3rem;
+    padding: 0.2rem;
+}
+.area-login {
+    display: flex;
+    gap: 2rem;
+}
+.label-content, .input-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    gap: 1rem;
+    margin: 1rem;
+}
+input {
     padding: 0.2rem;
 }

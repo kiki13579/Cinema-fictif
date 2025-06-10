@@ -7,6 +7,7 @@
     padding: 2rem;
     margin: 2rem;
     border-radius: var(--border-radius);
+    width: 50%;
 }
 p {
     font-size: 1.2rem;
