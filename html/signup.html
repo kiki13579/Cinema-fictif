@@ -49,21 +49,23 @@
         <section class="section-card">
             <h2 class="section-h2">S'inscrire</h2>
             <form action="#" method="post" id="forms">
-                <div>
-                    <label for="username">Nom d'utilisateur : </label>
-                    <input type="text" id="username" name="username" required placeholder="Kamihate">
+                <div class="area-signup">
+                    <div class="label-content">
+                        <label for="username">Nom d'utilisateur : </label>
+                        <label for="password">Mot de passe : </label>
+                        <label for="confirm_password">Confirmer le mot de passe : </label>
+                    </div>
+                    <div class="input-content">
+                        <input type="text" id="username" name="username" required placeholder="Kamihate">
+                        <input type="password" id="password" name="password" required placeholder="********">
+                        <input type="password" id="confirm_password" name="confirm_password" required placeholder="********">
+                    </div>
                 </div>
-                <div>
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required placeholder="********">
-                </div>
-                <div>
-                    <label for="confirm_password">Confirmer le mot de passe</label>
-                    <input type="password" id="confirm_password" name="confirm_password" required placeholder="********">
-                </div>
+                
                 <div class="content">
                     <input type="checkbox" id="consent" name="consent" required>
-                    <label for="consent">En validant l'inscription, vous acceptez que vos données soient collectées à des fins d'amélioration et de compréhension de la clientèle.</label>                </div>
+                    <label for="consent">En validant l'inscription, vous acceptez que vos données soient collectées à des fins d'amélioration et de compréhension de la clientèle.</label> 
+               </div>
                 <button type="submit" id="btn-validation" class="btn">Valider</button>
             </form>
         </section>
