@@ -28,5 +28,6 @@ RewriteRule ^ index.html [L]
   ExpiresByType application/javascript "access plus 1 week"
   ExpiresByType image/jpeg "access plus 1 month"
   ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
   ExpiresByType image/svg+xml "access plus 1 month"
 </IfModule>
