@@ -3,14 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La page de membre d'un site de cinema fictif concu par Kamihate">
+    <meta name="description" content="La page d'espace membre d'un site de cinema fictif concu par Kamihate">
+    <meta property="og:title" content="Espace membre du cinéma fictif de Kamihate">
+    <meta property="og:description" content="La page d'espace membre d'un site de cinema fictif concu par Kamihate.">
+    <meta property="og:url" content="https://mini-cinema-fictif.kamihate.fr">
+    <meta property="og:type" content="article">
     <meta name="author" content="Kamihate">
     <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="./css/root.css">
-    <script src="./js/utility/burger.js" defer type="module"></script>
-    <title>Page de membre du cinéma fictif de Kamihate</title>
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/html/member_space.css">
+    <link rel="stylesheet" href="../css/utility/forms.css">
+    <link rel="stylesheet" href="../css/utility/responsiv.css">
+    <script src="../js/utility/burger.js" async type="module"></script>
+    <title>Epace Membre du cinéma fictif de Kamihate</title>
 </head>
-<body>
-    
+<body class="body-card">
+    <header class="header-card">
+        <h1 class="header-h1">Cinéma Fictif</h1>
+        <nav class="header-nav">
+            <div class="desktop-menu">
+                <a href="../index.html" class="list-link -activeall">Accueil</a>
+                <a href="./signup.html" class="list-link  -disabledformember -disabledforadmin">Inscription</a>
+                <a href="./login.html" class="list-link -disabledformember -disabledforadmin">Connexion</a>
+                <a href="./member_space.html" class="list-link -disabledfornotmember -disabledforadmin">Espace membre</a>
+                <a href="./admin_panel.html" class="list-link -disabledfornotmember -disabledfornotadmin">Panneau d'administration</a>
+                <a href="../index.html" class="list-link -disabledfornotmember -disabledfornotadmin">Deconnexion</a>
+            </div>
+            <div class="mobile-nav hidden">
+                <a href="./index.html" class="list-link -activeall">Accueil</a>
+                <a href="./html/signup.html" class="list-link  -disabledformember -disabledforadmin">Inscription</a>
+                <a href="./html/login.html" class="list-link -disabledformember -disabledforadmin">Connexion</a>
+                <a href="./html/member_space.html" class="list-link -disabledfornotmember -disabledforadmin">Espace membre</a>
+                <a href="./html/admin_panel.html" class="list-link -disabledfornotmember -disabledfornotadmin">Panneau d'administration</a>
+                <a href="./index.html" class="list-link -disabledfornotmember -disabledfornotadmin">Deconnexion</a>
+            </div>
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-hero">
+        <section class="section-card">
+            <h2 class="section-h2">S'inscrire</h2>
+            <form action="#" method="post" id="forms">
+                <div>
+                    <label for="username">Nom d'utilisateur : </label>
+                    <input type="text" id="username" name="username" required placeholder="Kamihate">
+                </div>
+                <div>
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required placeholder="********">
+                </div>
+                <div>
+                    <label for="confirm_password">Confirmer le mot de passe</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required placeholder="********">
+                </div>
+                <div class="content">
+                    <input type="checkbox" id="consent" name="consent" required>
+                    <label for="consent">En validant l'inscription, vous acceptez que vos données soient collectées à des fins d'amélioration et de compréhension de la clientèle.</label>                </div>
+                <button type="submit" id="btn-validation" class="btn">Valider</button>
+            </form>
+        </section>
+        <section class="section-card">
+            <h2 class="section-h2">Se connecter</h2>
+            <p>Vous avez desja un compte aller vous connectez des maintenant</p>
+            <button class="btn"> Connexion</button>
+        </section>
+    </main>
+
+    <footer class="footer-card">
+        <img src="../asset/img/logo.png" alt="Logo Cinéma Fictif" class="logo-img">
+        <div class="footer-links">
+            <a href="#" class="footer-link">A propos de nous</a>
+            <a href="#" class="footer-link">Mentions légales</a>
+            <a href="#" class="footer-link">RGPD</a>
+            <a href="#" class="footer-link">CGU</a>
+            <a href="#" class="footer-link">Copyright</a>
+        </div>
+        <p>&copy; 10/06/2025 Cinéma Fictif. Design and create by Kamihate. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>

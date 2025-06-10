@@ -1,0 +1,13 @@
+.section-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-tertiary);
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: var(--border-radius);
+}
+p {
+    font-size: 1.2rem;
+}

@@ -47,48 +47,37 @@
 }
 .card-title {
     font-family: var(--font-h2);
+    color: var(--color-text);
     text-align: center;
     font-size: 1.25rem;
     margin: 1rem;
 }
-
-@media (max-width: 1600px) {
-    .card {
-        width: 21%;
-    }
-
-    .card:hover {
-        width: 21.5%;
-    }
-}
-@media (max-width: 1300px) {
-    .card {
-        width: 28%;
-    }
-
-    .card:hover {
-        width: 28,5%;
-    }
+.btn-réservation {
+    background-color: var(--button-primary);
+    color: var(--color-text);
+    border: none;
+    margin-top: 10px;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-@media (max-width: 950px) {
-    .card {
-        width: 42%;
-    }
-
-    .card:hover {
-        width: 42,5%;
-    }
+.btn-réservation:hover {
+    background-color: var(--button-hover);
+}
+.btn-réservation {
+    background-color: #4CAF50; /* Vert */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
-@media (max-width: 700px) {
-    .card {
-        width: 90%;
-    }
-
-    .card:hover {
-        width: 90.5%;
-    }
+.btn-réservation:hover {
+    background-color: #45a049;
 }
-
-/* À partir de 400px : smartphones */

@@ -1,0 +1,56 @@
+@media (max-width: 1600px) {
+    .card {
+        width: 21%;
+    }
+
+    .card:hover {
+        width: 21.5%;
+    }
+}
+@media (max-width: 1300px) {
+    .card {
+        width: 28%;
+    }
+
+    .card:hover {
+        width: 28,5%;
+    }
+}
+
+@media (max-width: 950px) {
+    .card {
+        width: 42%;
+    }
+
+    .card:hover {
+        width: 42,5%;
+    }
+}
+
+@media (max-width: 700px) {
+    .card-container {
+        height: 700px;
+        overflow: auto;
+        z-index: auto;
+    }
+    .card {
+        width: 90%;
+    }
+
+    .card:hover {
+        width: 90.5%;
+    }
+}
+@media (max-width: 500px) {
+    .card {
+        width: 100%;
+    }
+
+    .card:hover {
+        width: 100%;
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

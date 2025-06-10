@@ -12,6 +12,10 @@
     width: 20rem;
     margin-bottom: 1rem;
 }
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
 .footer-link {
     margin-bottom: 1rem; padding: 0.1rem 0.2rem;
     color: var(--background-highlight);

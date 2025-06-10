@@ -8,10 +8,12 @@
     <meta property="og:description" content="La page d'acceuil d'un site de cinema fictif concu par Kamihate.">
     <meta property="og:url" content="https://mini-cinema-fictif.kamihate.fr">
     <meta property="og:type" content="article">
-    <meta name="author" content="Kamihate">&
+    <meta name="author" content="Kamihate">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="./css/root.css">
-    <link rel="stylesheet" href="./css/html/acceuil.css">
+    <link rel="stylesheet" href="./css/html/home.css">
+    <link rel="stylesheet" href="./css/utility/modale.css">
+    <link rel="stylesheet" href="./css/utility/responsiv.css">
     <link rel="preload" href="./asset/img/destination_final_bloodlines.webp" as="image">
     <link rel="preload" href="./asset/img/diplodocus.webp" as="image">
     <link rel="preload" href="./asset/img/hm.webp" as="image">
@@ -29,7 +31,9 @@
     <link rel="preload" href="./asset/img/thunderbolt.webp" as="image">
     <link rel="preload" href="./asset/img/uc.webp" as="image">
     <link rel="preload" href="./asset/img/until_down.webp" as="image">
+    <scriptc src="./js/html/home.js" defer type="module"></script>
     <script src="./js/utility/burger.js" async type="module"></script>
+    <script src="./js/utility/modale.js" async type="module"></script>
     <title>Acceuil du cinéma fictif de Kamihate</title>
 </head>
 <body class="body-card">
@@ -59,7 +63,7 @@
             </div>
         </nav>
     </header>
-    
+
     <main class="main-hero">
         <section class="section-card section-card-hero">
             <h2 class="section-h2">Films à l'affiche</h2>
@@ -69,91 +73,105 @@
                     <div class="card-img">
                         <img srcset src="./asset/img/destination_final_bloodlines.webp" alt="destination_final_bloodlines" class="img" width="240px" height="315px">
                     </div>
-                    <button></button>
+                    <button class="btn-réservation" onclick="handleReservationClick('Destination Finale', 'film_destination_finale_id_unique', 50, 12)">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Diplodocus</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/diplodocus.webp" alt="diplodocus" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Hot Milk</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/hm.webp" alt="hot-milk" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Jeunes mères</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/jm.webp" alt="jeunes-meres" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">L'ultime braquage</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/l'ultim_braquage.webp" alt="l'ultime-braquage" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Lilo & Stitch</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/lets.webp" alt="lilo-stitch" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">La venue de l'avenir</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/lvdla.webp" alt="la-venue-de-l'avenir" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Mission Impossible</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/mission_impossible.webp" alt="mission-impossible-the-final-reckoning" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Partir un jour</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/puj.webp" alt="partir-un-jour" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Radio prague</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/radio_prague.webp" alt="radio-prague-les-ondes-de-la-revolte" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Sinners</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/sinners.webp" alt="sinners" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">The phoenician scheme</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/the_phoenicia_scheme.webp" alt="the-phoenician-scheme" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Thunderbolt</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/thunderbolt.webp" alt="thunderbolt" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Until dawn</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/until_down.webp" alt="until-dawn" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Under Construct</h3>
                     <div class="card-img">
                         <img srcset src="./asset/img/uc.webp" alt="en-cours-de-creation" class="img" width="240px" height="315px">
                     </div>
+                    <button class="btn-réservation">Réserver</button>
                 </div>
             </div>
         </section>
@@ -185,13 +203,5 @@
         </div>
         <p>&copy; 10/06/2025 Cinéma Fictif. Design and create by Kamihate. Tous droits réservés.</p>
     </footer>
-    <div id="modal" class="modal hidden">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div class="modal-body">
-                <p>Contenu de la modale</p>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

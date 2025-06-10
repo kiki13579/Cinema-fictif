@@ -1,33 +1,52 @@
 .modal {
-    position: fixed;
-    top: 0;
+    display: none; /* Cachée par défaut */
+    position: fixed; /* Reste en place même en scrollant */
+    z-index: 1000; /* Au-dessus de tout */
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.modal.hidden {
-    display: none;
+    overflow: auto; /* Permet de scroller si le contenu est trop grand */
+    background-color: rgba(0,0,0,0.6); /* Fond sombre semi-transparent */
+    display: flex; /* Utilise flexbox pour centrer */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
 }
 
 .modal-content {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 500px;
+    background-color: #fefefe;
+    padding: 30px;
+    border: 1px solid #888;
     width: 90%;
-    position: relative;
+    max-width: 500px; /* Largeur maximale pour la modale */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* Pour positionner le bouton de fermeture */
+    animation-name: animatetop;
+    animation-duration: 0.4s
 }
 
-.modal-close {
+/* Animation pour l'apparition de la modale */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+
+.close-button {
+    color: #aaa;
     position: absolute;
-    top: 0.5rem;
-    right: 1rem;
-    font-size: 1.5rem;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
     cursor: pointer;
 }
