@@ -2,9 +2,8 @@ User-agent: *
 Disallow: /admin/
 Disallow: /private/
 Disallow: /tmp/
-Disallow: /page-secrete.html
+Disallow: /html/admin_panel.html
 
 User-agent: Googlebot
 Disallow: /no-google/
 
-Sitemap: https://www.tonsite.com/sitemap.xml
