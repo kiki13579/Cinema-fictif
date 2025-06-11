@@ -73,94 +73,102 @@
     </header>
 
     <main class="main-hero">
-        <section class="section-card">
-    <h2 class="section-h2">S'inscrire</h2>
-    <form action="#" method="post" id="signupForm">
-        <!-- Regroupe les champs de compte pour la sémantique et l'accessibilité -->
-        <fieldset class="form-group">
-            <legend class="form-legend">Informations de compte</legend>
+        <section class="section-hub">
+            <article class="section-ads">
 
-            <!-- Champ Nom d'utilisateur -->
-            <div class="form-field">
-                <label for="username">Nom d'utilisateur :</label>
-                <input type="text" id="username" name="username" required 
-                       placeholder="Choisissez un nom d'utilisateur" 
-                       autocomplete="username"          
-                       minlength="3"                     
-                       maxlength="50"                    
-                       aria-describedby="username-hint">  
-                <!-- 
-                    Aide à l'autocomplétion du navigateur,
-                    Validation HTML5 : au moins 3 caractères,
-                    Validation HTML5 : maximum 50 caractères,
-                    Associe l'input à son texte d'aide pour l'accessibilité
-                -->
-                <small id="username-hint" class="input-hint">Minimum 3 caractères, maximum 50.</small>
-            </div>
+            </article>
+            <article class="section-card">
+                <h2 class="section-h2">S'inscrire</h2>
+                <form action="#" method="post" id="signupForm" class="signupForm">
+                    <!-- Regroupe les champs de compte pour la sémantique et l'accessibilité -->
+                    <fieldset class="form-group">
+                        <legend class="form-legend">Informations de compte</legend>
 
-            <!-- Champ Mot de passe -->
-            <div class="form-field password-field">
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password" required 
-                       placeholder="********" 
-                       autocomplete="new-password"       
-                       minlength="8"                     
-                       aria-describedby="password-hint password-error"> 
-                <!-- 
-                    Suggère au navigateur que c'est un nouveau mot de passe,
-                    Validation HTML5 : au moins 8 caractères,
-                    Associe l'input aux aides/erreurs,
-                    Bouton pour basculer la visibilité du mot de passe (à gérer avec JS)
-                -->
-                <button type="button" class="password-toggle" aria-label="Afficher le mot de passe">👁️</button>
-                <small id="password-hint" class="input-hint">Minimum 8 caractères (ex: majuscules, minuscules, chiffres, symboles).</small>
-                <!-- Message d'erreur spécifique au mot de passe (masqué par défaut, affiché par JS) -->
-                <p id="password-error" class="input-error" role="alert" style="display:none;"></p>
-            </div>
+                        <!-- Champ Nom d'utilisateur -->
+                        <div class="form-field">
+                            <label for="username">Nom d'utilisateur :</label>
+                            <input type="text" id="username" name="username" required 
+                                placeholder="Choisissez un nom d'utilisateur" 
+                                autocomplete="username"          
+                                minlength="8"                     
+                                maxlength="50"                    
+                                aria-describedby="username-hint">  
+                            <!-- 
+                                Aide à l'autocomplétion du navigateur,
+                                Validation HTML5 : au moins 3 caractères,
+                                Validation HTML5 : maximum 50 caractères,
+                                Associe l'input à son texte d'aide pour l'accessibilité
+                            -->
+                            <small id="username-hint" class="input-hint">Minimum 3 caractères, maximum 50.</small>
+                        </div>
 
-            <!-- Champ Confirmer le mot de passe -->
-            <div class="form-field password-field">
-                <label for="confirmPassword">Confirmer le mot de passe :</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required 
-                       placeholder="********" 
-                       autocomplete="new-password" 
-                       minlength="8"
-                       aria-describedby="confirm-password-error">
-                <!-- Bouton pour basculer la visibilité (peut être dupliqué si désiré) -->
-                <button type="button" class="password-toggle" aria-label="Afficher le mot de passe">👁️</button>
-                <!-- Message d'erreur spécifique à la confirmation (masqué par défaut) -->
-                <p id="confirm-password-error" class="input-error" role="alert" style="display:none;"></p>
-            </div>
-        </fieldset>
+                        <!-- Champ Mot de passe -->
+                        <div class="form-field password-field">
+                            <label for="password">Mot de passe :</label>
+                            <input type="password" id="password" name="password" required 
+                                placeholder="********" 
+                                autocomplete="new-password"       
+                                minlength="8"                     
+                                aria-describedby="password-hint password-error"> 
+                            <!-- 
+                                Suggère au navigateur que c'est un nouveau mot de passe,
+                                Validation HTML5 : au moins 8 caractères,
+                                Associe l'input aux aides/erreurs,
+                                Bouton pour basculer la visibilité du mot de passe (à gérer avec JS)
+                            -->
+                            <button type="button" class="password-toggle" aria-label="Afficher le mot de passe">👁️</button>
+                            <small id="password-hint" class="input-hint">Minimum 8 caractères (ex: majuscules, minuscules, chiffres, symboles).</small>
+                            <!-- Message d'erreur spécifique au mot de passe (masqué par défaut, affiché par JS) -->
+                            <p id="password-error" class="input-error" role="alert" style="display:none;"></p>
+                        </div>
 
-        <!-- Section du consentement -->
-        <div class="form-field consent-field">
-            <input type="checkbox" id="consent" name="consent" required 
-                   aria-describedby="consent-text"> 
-            <!-- Associe la checkbox à son texte d'aide/erreur -->
-            <!-- La balise label enveloppe le texte complet pour le rendre cliquable -->
-            <label for="consent" class="consent-label">
-                J'accepte que mes données soient collectées à des fins d'amélioration et de compréhension de la clientèle.
-            </label>
-            <!-- Message d'erreur pour le consentement (masqué par défaut) -->
-            <p id="consent-text" class="input-error" role="alert" style="display:none;"></p>
-        </div>
+                        <!-- Champ Confirmer le mot de passe -->
+                        <div class="form-field password-field">
+                            <label for="confirmPassword">Confirmer le mot de passe :</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required 
+                                placeholder="********" 
+                                autocomplete="new-password" 
+                                minlength="8"
+                                aria-describedby="confirm-password-error">
+                            <!-- Bouton pour basculer la visibilité (peut être dupliqué si désiré) -->
+                            <button type="button" class="password-toggle" aria-label="Afficher le mot de passe">👁️</button>
+                            <!-- Message d'erreur spécifique à la confirmation (masqué par défaut) -->
+                            <p id="confirm-password-error" class="input-error" role="alert" style="display:none;"></p>
+                        </div>
+                    </fieldset>
 
-        <!-- Bouton de soumission -->
-        <button type="submit" id="btn-validation" class="btn">Valider</button>
-        
-        <!-- Paragraphe pour afficher les messages de succès/erreur dynamiquement -->
-        <p id="signupMessage" class="message" role="status" aria-live="polite"></p> 
+                    <!-- Section du consentement -->
+                    <div class="form-field consent-field">
+                        <input type="checkbox" id="consent" name="consent" required 
+                            aria-describedby="consent-text"> 
+                        <!-- Associe la checkbox à son texte d'aide/erreur -->
+                        <!-- La balise label enveloppe le texte complet pour le rendre cliquable -->
+                        <label for="consent" class="consent-label">
+                            J'accepte que mes données soient collectées à des fins d'amélioration et de compréhension de la clientèle.
+                        </label>
+                        <!-- Message d'erreur pour le consentement (masqué par défaut) -->
+                        <p id="consent-text" class="input-error" role="alert" style="display:none;"></p>
+                    </div>
 
-        <!-- Lien vers la page de connexion, si l'utilisateur a déjà un compte -->
-        <p class="login-link">Déjà un compte ? <a href="login.html">Se connecter ici</a></p>
-    </form>
-</section>
-        <section class="section-card">
+                    <!-- Bouton de soumission -->
+                    <button type="submit" id="btn-validation" class="btn">Valider</button>
+                
+                    <!-- Paragraphe pour afficher les messages de succès/erreur dynamiquement -->
+                    <p id="signupMessage" class="message" role="status" aria-live="polite"></p> 
+
+                    <!-- Lien vers la page de connexion, si l'utilisateur a déjà un compte -->
+                    <p class="login-link">Déjà un compte ? <a href="login.html">Se connecter ici</a></p>
+                </form>
+            </article>
+            <article class="section-ads">
+
+            </article>
+        </section>
+        <article class="section-card">
             <h2 class="section-h2">Se connecter</h2>
             <p>Vous avez desja un compte aller vous connectez dès maintenant</p>
             <button class="btn" onclick="window.location.href='./login.html'"> Connexion</button>
-        </section>
+        </article>
     </main>
 
     <footer class="footer-card">
