@@ -22,13 +22,13 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     Header always set X-Content-Type-Options "nosniff"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set Content-Security-Policy "default-src 'self'; \
-        script-src 'self' 'unsafe-inline'; \
-        style-src 'self' 'unsafe-inline'; \
-        img-src 'self' data: ./asset/img/; \
-        font-src 'self'; \
-        connect-src 'self'; \
-        form-action 'self'; \
-        frame-ancestors 'self';"
+      script-src 'self' 'unsafe-inline'; \
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
+      img-src 'self' data: https://placehold.co/; \  <-- Assurez-vous que './asset/img/' n'est PAS ICI
+      font-src 'self' https://fonts.gstatic.com; \
+      connect-src 'self'; \
+      form-action 'self'; \
+      frame-ancestors 'self';"
     
 </IfModule>
 

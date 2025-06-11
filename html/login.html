@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La page d'inscription d'un site de cinema fictif concu par Kamihate">
-    <meta property="og:title" content="Acceuil du cinéma fictif de Kamihate">
-    <meta property="og:description" content="La page d'inscription d'un site de cinema fictif concu par Kamihate.">
+    
+    <!-- Balise Title : Cruciale pour le SEO, placez-la tôt dans le head. -->
+    <title>Connexion au Cinéma Fictif - Accédez à votre compte</title>
+
+    <!-- Méta-description : Résumé de la page pour les moteurs de recherche. -->
+    <meta name="description" content="Connectez-vous à votre compte du Mini Cinéma Fictif. Accédez à vos réservations, l'espace membre et le panneau d'administration.">
+    
+    <!-- Balises Open Graph (OG) : Pour un meilleur affichage lorsque la page est partagée sur les réseaux sociaux. -->
+    <meta property="og:title" content="Connexion au Cinéma Fictif de Kamihate">
+    <meta property="og:description" content="Connectez-vous à votre compte du Mini Cinéma Fictif. Accédez à vos réservations, l'espace membre et le panneau d'administration.">
     <meta property="og:url" content="https://mini-cinema-fictif.kamihate.fr/html/login.html">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website"> <!-- Type de page pour une page de connexion -->
+    
+    <!-- Méta-auteur : Information sur l'auteur de la page. -->
     <meta name="author" content="Kamihate">
+    
+    <!-- Balise Robots : Indique aux moteurs de recherche d'indexer la page et de suivre les liens. -->
     <meta name="robots" content="index, follow">
+    
+    <!-- Balise Canonique : Évite le contenu dupliqué en indiquant l'URL préférée pour cette page. -->
     <link rel="canonical" href="https://mini-cinema-fictif.kamihate.fr/html/login.html">
+    
+    <!-- Liens CSS : Chargent les feuilles de style de votre site. L'ordre est important si les styles se chevauchent. -->
     <link rel="stylesheet" href="../css/root.css">
-    <link rel="stylesheet" href="../css/html/login.css">
-    <link rel="stylesheet" href="../css/utility/forms.css">
+    <link rel="stylesheet" href="../css/html/login.css"> <!-- Si cette page utilise des styles de 'home.css' -->
     <link rel="stylesheet" href="../css/utility/responsiv.css">
+
+    <!-- Liens Preload : Pour les ressources critiques qui améliorent le LCP.
+         Sur une page de connexion, il s'agit souvent du logo ou d'une image de fond principale. -->
+    <link rel="preload" href="../asset/img/logo.png" as="image">
+    <!-- Si vous avez une image de fond importante sur cette page, préchargez-la ici. -->
+    <!-- <link rel="preload" href="./asset/img/votre_image_de_fond_login.webp" as="image"> -->
+
+    <!-- Scripts JavaScript : Chargés en tant que modules avec l'attribut 'defer' pour ne pas bloquer le rendu. -->
+    <!-- L'ordre est important en raison des dépendances entre les modules. -->
     <script type="module" src="../js/utility/hashing.js" defer></script>
     <script type="module" src="../js/api/localStorageManager.js" defer></script>
-    <script type="module" src="../js/html/login.js" defer></script>
-    <script type="module" src="../js/utility/navigationManager.js"></script>
-    <title>Inscription du cinéma fictif de Kamihate</title>
+    <script type="module" src="../js/login.js" defer></script> <!-- Votre script de logique de connexion -->
+    <script type="module" src="../js/utility/navigationManager.js" defer></script> <!-- Pour la barre de navigation -->
+
 </head>
 <body class="body-card">
     <header class="header-card">
