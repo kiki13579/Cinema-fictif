@@ -52,23 +52,10 @@
     font-size: 1.25rem;
     margin: 1rem;
 }
-.btn-réservation {
-    background-color: var(--button-primary);
-    color: var(--color-text);
-    border: none;
-    margin-top: 10px;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-.btn-réservation:hover {
-    background-color: var(--button-hover);
-}
 .btn-réservation {
     background-color: #4CAF50; /* Vert */
-    color: white;
+    color: black;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;

@@ -26,3 +26,6 @@
 .footer-link:hover {
     color: var(--link-hover);
 }
+.f-p {
+    color: var(--color-text);
+}
