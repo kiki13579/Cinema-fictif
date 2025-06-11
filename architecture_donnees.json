@@ -1,14 +1,15 @@
 {
   "Current_user": "Admin",
+  "price": "12",
   "users": [
     {
       "id": "0",
-      "user": "Admin",
-      "mot_de_passe": "password",
-      "mot_de_passe_hash": "hashed_admin_password",
-      "est_membre": true,
+      "user": "admin",
+      "mot_de_passe": "admin",
+      "mot_de_passe_hash": "",
+      "est_membre": false,
       "est_admin": true,
-      "date_creation": "2025-06-05T10:05:00Z"
+      "date_creation": ""
     },
     {
       "id": "1",

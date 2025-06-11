@@ -2,7 +2,7 @@ export function createBurgerMenu({
     links = [],
     container = document.body,
     logoText = "Cinéma Fictif",
-    breakpoint = 1024
+    breakpoint = 1300
 } = {}) {
     // Création des éléments
     const header = document.createElement("header");
