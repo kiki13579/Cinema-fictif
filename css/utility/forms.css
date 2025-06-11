@@ -21,6 +21,7 @@ label {
     font-size: 1.2rem;
     border-radius: var(--border-radius);
     color: var(--color-text);
+    cursor: pointer;
     
 }
 .btn:hover {
@@ -33,4 +34,7 @@ label {
     text-align:center ;
     width: 60%;
     margin: 0 auto;
+}
+input[type="checkbox"] {
+    cursor: pointer;
 }
