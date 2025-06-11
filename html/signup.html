@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La page de connexion d'un site de cinema fictif concu par Kamihate">
-    <meta property="og:title" content="Acceuil du cinéma fictif de Kamihate">
-    <meta property="og:description" content="La page de connexion d'un site de cinema fictif concu par Kamihate.">
+    
+    <!-- Balise Title : Cruciale pour le SEO. Doit être unique et décrire la page. -->
+    <title>Inscription - Cinéma Fictif - Créez votre compte</title>
+
+    <!-- Méta-description : Résumé concis de la page pour les moteurs de recherche et les utilisateurs. -->
+    <meta name="description" content="Inscrivez-vous au Cinéma Fictif en quelques étapes simples. Créez votre compte pour accéder aux réservations de films, à l'espace membre et plus encore.">
+    
+    <!-- Balises Open Graph (OG) : Pour un meilleur affichage lorsque la page est partagée sur les réseaux sociaux. -->
+    <meta property="og:title" content="Inscription au Cinéma Fictif de Kamihate">
+    <meta property="og:description" content="Créez votre compte rapidement au Cinéma Fictif de Kamihate pour profiter de tous nos services : réservation de films, espace membre.">
     <meta property="og:url" content="https://mini-cinema-fictif.kamihate.fr/html/signup.html">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
+    
+    <!-- Méta-auteur : Information sur l'auteur de la page. -->
     <meta name="author" content="Kamihate">
+    
+    <!-- Balise Robots : Indique aux moteurs de recherche d'indexer la page et de suivre les liens. -->
     <meta name="robots" content="index, follow">
+    
+    <!-- Balise Canonique : Évite le contenu dupliqué en indiquant l'URL préférée pour cette page. -->
     <link rel="canonical" href="https://mini-cinema-fictif.kamihate.fr/html/signup.html">
+    
+    <!-- Liens CSS : Chargent les feuilles de style de votre site. -->
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/html/signup.css">
     <link rel="stylesheet" href="../css/utility/forms.css">
     <link rel="stylesheet" href="../css/utility/responsiv.css">
+
+    <!-- Liens Preload (à utiliser avec parcimonie pour les ressources LCP) -->
+    <!-- Exemple si le logo est l'élément LCP et est dans asset/img/logo.png -->
+    <link rel="preload" href="../asset/img/logo.png" as="image">
+
+    <!-- Scripts JavaScript : Chargés en tant que modules avec l'attribut 'defer'. -->
     <script type="module" src="../js/utility/burger.js" defer></script>
     <script type="module" src="../js/utility/hashing.js" defer></script>
     <script type="module" src="../js/api/localStorageManager.js" defer></script>
-    <script type="module" src="../js/utility/navigationManager.js"></script>
-    <title>Connexion du cinéma fictif de Kamihate</title>
+    <script type="module" src="../js/utility/navigationManager.js" defer></script>
+
+    <!-- Votre script de logique d'inscription -->
+    <script type="module" src="../js/signup.js" defer></script>
 </head>
 <body class="body-card">
     <header class="header-card">
@@ -51,29 +74,88 @@
 
     <main class="main-hero">
         <section class="section-card">
-            <h2 class="section-h2">S'inscrire</h2>
-            <form action="#" method="post" id="signupForm">
-                <div class="area-signup">
-                    <div class="label-content">
-                        <label for="username">Nom d'utilisateur : </label>
-                        <label for="password">Mot de passe : </label>
-                        <label for="confirmPassword">Confirmer le mot de passe : </label>
-                    </div>
-                    <div class="input-content">
-                        <input type="text" id="username" name="username" required placeholder="Kamihate">
-                        <input type="password" id="password" name="password" required placeholder="********">
-                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="********">
-                    </div>
-                </div>
-                
-                <div class="content">
-                    <input type="checkbox" id="consent" name="consent" required>
-                    <label for="consent" class="lbl-c">En validant l'inscription, vous acceptez que vos données soient collectées à des fins d'amélioration et de compréhension de la clientèle.</label> 
-               </div>
-                <button type="submit" id="btn-validation" class="btn">Valider</button>
-                <p id="signupMessage" style="margin-top: 10px;" class="message"></p>
-            </form>
-        </section>
+    <h2 class="section-h2">S'inscrire</h2>
+    <form action="#" method="post" id="signupForm">
+        <!-- Regroupe les champs de compte pour la sémantique et l'accessibilité -->
+        <fieldset class="form-group">
+            <legend class="form-legend">Informations de compte</legend>
+
+            <!-- Champ Nom d'utilisateur -->
+            <div class="form-field">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" name="username" required 
+                       placeholder="Choisissez un nom d'utilisateur" 
+                       autocomplete="username"          
+                       minlength="3"                     
+                       maxlength="50"                    
+                       aria-describedby="username-hint">  
+                <!-- 
+                    Aide à l'autocomplétion du navigateur,
+                    Validation HTML5 : au moins 3 caractères,
+                    Validation HTML5 : maximum 50 caractères,
+                    Associe l'input à son texte d'aide pour l'accessibilité
+                -->
+                <small id="username-hint" class="input-hint">Minimum 3 caractères, maximum 50.</small>
+            </div>
+
+            <!-- Champ Mot de passe -->
+            <div class="form-field password-field">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required 
+                       placeholder="********" 
+                       autocomplete="new-password"       
+                       minlength="8"                     
+                       aria-describedby="password-hint password-error"> 
+                <!-- 
+                    Suggère au navigateur que c'est un nouveau mot de passe,
+                    Validation HTML5 : au moins 8 caractères,
+                    Associe l'input aux aides/erreurs,
+                    Bouton pour basculer la visibilité du mot de passe (à gérer avec JS)
+                -->
+                <button type="button" class="password-toggle" aria-label="Afficher le mot de passe">👁️</button>
+                <small id="password-hint" class="input-hint">Minimum 8 caractères (ex: majuscules, minuscules, chiffres, symboles).</small>
+                <!-- Message d'erreur spécifique au mot de passe (masqué par défaut, affiché par JS) -->
+                <p id="password-error" class="input-error" role="alert" style="display:none;"></p>
+            </div>
+
+            <!-- Champ Confirmer le mot de passe -->
+            <div class="form-field password-field">
+                <label for="confirmPassword">Confirmer le mot de passe :</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required 
+                       placeholder="********" 
+                       autocomplete="new-password" 
+                       minlength="8"
+                       aria-describedby="confirm-password-error">
+                <!-- Bouton pour basculer la visibilité (peut être dupliqué si désiré) -->
+                <button type="button" class="password-toggle" aria-label="Afficher le mot de passe">👁️</button>
+                <!-- Message d'erreur spécifique à la confirmation (masqué par défaut) -->
+                <p id="confirm-password-error" class="input-error" role="alert" style="display:none;"></p>
+            </div>
+        </fieldset>
+
+        <!-- Section du consentement -->
+        <div class="form-field consent-field">
+            <input type="checkbox" id="consent" name="consent" required 
+                   aria-describedby="consent-text"> 
+            <!-- Associe la checkbox à son texte d'aide/erreur -->
+            <!-- La balise label enveloppe le texte complet pour le rendre cliquable -->
+            <label for="consent" class="consent-label">
+                J'accepte que mes données soient collectées à des fins d'amélioration et de compréhension de la clientèle.
+            </label>
+            <!-- Message d'erreur pour le consentement (masqué par défaut) -->
+            <p id="consent-text" class="input-error" role="alert" style="display:none;"></p>
+        </div>
+
+        <!-- Bouton de soumission -->
+        <button type="submit" id="btn-validation" class="btn">Valider</button>
+        
+        <!-- Paragraphe pour afficher les messages de succès/erreur dynamiquement -->
+        <p id="signupMessage" class="message" role="status" aria-live="polite"></p> 
+
+        <!-- Lien vers la page de connexion, si l'utilisateur a déjà un compte -->
+        <p class="login-link">Déjà un compte ? <a href="login.html">Se connecter ici</a></p>
+    </form>
+</section>
         <section class="section-card">
             <h2 class="section-h2">Se connecter</h2>
             <p>Vous avez desja un compte aller vous connectez dès maintenant</p>
