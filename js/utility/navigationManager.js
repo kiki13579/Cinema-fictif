@@ -11,7 +11,7 @@ function handleLogout() {
     setCurrentUser(null); // Définir l'utilisateur courant à null (déconnexion)
     console.log("Utilisateur déconnecté.");
     // Redirige vers la page d'accueil (ajustez le chemin si nécessaire)
-    window.location.href = '../../index.html'; // Remplacez par le chemin relatif correct de votre index.html
+    window.location.href = 'https://mini-cinema-fictif.kamihate.fr/index.html'; // Remplacez par le chemin relatif correct de votre index.html
 }
 
 /**

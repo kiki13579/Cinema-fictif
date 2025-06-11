@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La page d'acceuil d'un site de cinema fictif concu par Kamihate">
+    <meta name="description" content="Découvrez la page d'acceuil du Cinéma Fictif projet completement fictif : films à l'affiche, prochaines sorties et réservations faciles. Votre expérience cinématographique unique à Châtellerault !">
     <meta property="og:title" content="Acceuil du cinéma fictif de Kamihate">
-    <meta property="og:description" content="La page d'acceuil d'un site de cinema fictif concu par Kamihate.">
+    <meta property="og:description" content="Découvrez la page d'acceuil du  Mini Cinéma Fictif projet completement fictif : films à l'affiche, prochaines sorties et réservations faciles. Votre expérience cinématographique unique à Châtellerault !">
     <meta property="og:url" content="https://mini-cinema-fictif.kamihate.fr/index.html">
     <meta property="og:type" content="article">
     <meta name="author" content="Kamihate">
@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="./css/html/home.css">
     <link rel="stylesheet" href="./css/utility/modale.css">
     <link rel="stylesheet" href="./css/utility/responsiv.css">
+    <script type="module" src="./js/utility/hashing.js" defer></script>
+    <script type="module" src="./js/api/localStorageManager.js" defer></script>
+    <script type="module" src="./js/utility/navigationManager.js"></script>
+    <title>Acceuil du Cinéma Fictif - Films à l'affiche & Prochaines Sorties</title>
     <link rel="preload" href="./asset/img/destination_final_bloodlines.webp" as="image">
     <link rel="preload" href="./asset/img/diplodocus.webp" as="image">
     <link rel="preload" href="./asset/img/hm.webp" as="image">
@@ -32,31 +36,26 @@
     <link rel="preload" href="./asset/img/thunderbolt.webp" as="image">
     <link rel="preload" href="./asset/img/uc.webp" as="image">
     <link rel="preload" href="./asset/img/until_down.webp" as="image">
-    <scriptc src="./js/html/home.js" defer type="module"></script>
-    <script type="module" src="./js/utility/hashing.js" defer></script>
-    <script type="module" src="./js/api/localStorageManager.js" defer></script>
-    <script type="module" src="./js/utility/navigationManager.js"></script>
-    <title>Acceuil du Cinéma Fictif - Films à l'affiche & Prochaines Sorties</title>
 </head>
 <body class="body-card">
     <header class="header-card">
         <h1 class="header-h1">Cinéma Fictif</h1>
         <nav class="header-nav">
             <div class="desktop-menu">
-                <a href="./index.html" class="list-link -activeall">Accueil</a>
-                <a href="./html/signup.html" class="list-link  -activenotmember">Inscription</a>
-                <a href="./html/login.html" class="list-link -activenotmember">Connexion</a>
-                <a href="./html/member_space.html" class="list-link -activemember">Espace membre</a>
-                <a href="./html/admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
-                <a href="./index.html" class="list-link -activeconnect">Deconnexion</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeall">Accueil</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/html/signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/html/login.html" class="list-link -activenotmember">Connexion</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/html/member_space.html" class="list-link -activemember">Espace membre</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/html/admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeconnect">Deconnexion</a>
             </div>
             <div class="mobile-nav hidden">
-                <a href="./index.html" class="list-link -activeall">Accueil</a>
-                <a href="./html/signup.html" class="list-link  -activenotmember">Inscription</a>
-                <a href="./html/login.html" class="list-link -activenotmember">Connexion</a>
-                <a href="./html/member_space.html" class="list-link -activemember">Espace membre</a>
-                <a href="./html/admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
-                <a href="./index.html" class="list-link -activeconnect">Deconnexion</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeall">Accueil</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/html/signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/html/login.html" class="list-link -activenotmember">Connexion</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/html/member_space.html" class="list-link -activemember">Espace membre</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/html/admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
+                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeconnect">Deconnexion</a>
             </div>
             <div class="burger-menu" id="burger-menu">
                 <span></span>
