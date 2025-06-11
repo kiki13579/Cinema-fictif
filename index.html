@@ -3,39 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez la page d'acceuil du Cinéma Fictif projet completement fictif : films à l'affiche, prochaines sorties et réservations faciles. Votre expérience cinématographique unique à Châtellerault !">
-    <meta property="og:title" content="Acceuil du cinéma fictif de Kamihate">
-    <meta property="og:description" content="Découvrez la page d'acceuil du  Mini Cinéma Fictif projet completement fictif : films à l'affiche, prochaines sorties et réservations faciles. Votre expérience cinématographique unique à Châtellerault !">
-    <meta property="og:url" content="https://mini-cinema-fictif.kamihate.fr/index.html">
-    <meta property="og:type" content="article">
+    
+    <!-- Balise Title : Cruciale pour le SEO. Définie en premier pour sa priorité. -->
+    <title>Accueil du Cinéma Fictif - Films à l'affiche & Prochaines Sorties</title>
+
+    <!-- Méta-description : Résumé de la page pour les moteurs de recherche et les utilisateurs. -->
+    <meta name="description" content="Découvrez le Mini Cinéma Fictif : films à l'affiche, prochaines sorties et réservations faciles. Votre expérience cinématographique unique à Châtellerault !">
+    
+    <!-- Balises Open Graph (OG) : Pour un meilleur affichage sur les réseaux sociaux. -->
+    <meta property="og:title" content="Accueil du Cinéma Fictif de Kamihate">
+    <meta property="og:description" content="Découvrez le Mini Cinéma Fictif, un projet complet et fictif : films à l'affiche, prochaines sorties et réservations faciles. Votre expérience cinématographique unique à Châtellerault !">
+    <meta property="og:url" content="https://mini-cinema-fictif.kamihate.fr/"> <!-- URL canonique préférée -->
+    <meta property="og:type" content="website"> <!-- Type de page pour la page d'accueil -->
+    
+    <!-- Méta-auteur : Utile pour l'information, sans impact direct sur le SEO. -->
     <meta name="author" content="Kamihate">
+    
+    <!-- Balise Robots : Indique aux moteurs de recherche d'indexer la page et de suivre les liens. -->
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mini-cinema-fictif.kamihate.fr/index.html">
+    
+    <!-- Balise Canonique : Évite le contenu dupliqué en indiquant la version préférée de l'URL. -->
+    <!-- Si vous préférez https://mini-cinema-fictif.kamihate.fr/ (sans index.html), pointez ici. -->
+    <link rel="canonical" href="https://mini-cinema-fictif.kamihate.fr/">
+    
+    <!-- Liens CSS : Chargent les feuilles de style de votre site. -->
+    <!-- L'ordre est important si les styles se chevauchent. -->
     <link rel="stylesheet" href="./css/root.css">
     <link rel="stylesheet" href="./css/html/home.css">
     <link rel="stylesheet" href="./css/utility/modale.css">
     <link rel="stylesheet" href="./css/utility/responsiv.css">
-    <script type="module" src="./js/utility/hashing.js" defer></script>
-    <script type="module" src="./js/api/localStorageManager.js" defer></script>
-    <script type="module" src="./js/utility/navigationManager.js"></script>
-    <title>Acceuil du Cinéma Fictif - Films à l'affiche & Prochaines Sorties</title>
+
+    <!-- Liens Preload pour les images LCP (Largest Contentful Paint) :
+         Préchargez uniquement les images absolument essentielles et visibles au-dessus de la ligne de flottaison (LCP).
+         Trop de preloads peuvent ralentir le chargement initial.
+         Identifiez l'image LCP et préchargez-la si elle n'est pas déjà découverte tôt par le parseur HTML. -->
     <link rel="preload" href="./asset/img/destination_final_bloodlines.webp" as="image">
     <link rel="preload" href="./asset/img/diplodocus.webp" as="image">
-    <link rel="preload" href="./asset/img/hm.webp" as="image">
-    <link rel="preload" href="./asset/img/jm.webp" as="image">
-    <link rel="preload" href="./asset/img/l'ultim_braquage.webp" as="image">
-    <link rel="preload" href="./asset/img/lets.webp" as="image">
-    <link rel="preload" href="./asset/img/lm.webp" as="image">
-    <link rel="preload" href="./asset/img/logo.png" as="image">
-    <link rel="preload" href="./asset/img/lvdla.webp" as="image">
-    <link rel="preload" href="./asset/img/mission_impossible.webp" as="image">
-    <link rel="preload" href="./asset/img/puj.webp" as="image">
-    <link rel="preload" href="./asset/img/radio_prague.webp" as="image">
-    <link rel="preload" href="./asset/img/sinners.webp" as="image">
-    <link rel="preload" href="./asset/img/the_phoenicia_scheme.webp" as="image">
-    <link rel="preload" href="./asset/img/thunderbolt.webp" as="image">
-    <link rel="preload" href="./asset/img/uc.webp" as="image">
-    <link rel="preload" href="./asset/img/until_down.webp" as="image">
+    <link rel="preload" href="./asset/img/hm.webp" as="image">
+    <link rel="preload" href="./asset/img/jm.webp" as="image">
+    <link rel="preload" href="./asset/img/l'ultim_braquage.webp" as="image">
+    <link rel="preload" href="./asset/img/lets.webp" as="image">
+    <link rel="preload" href="./asset/img/lm.webp" as="image">
+    <link rel="preload" href="./asset/img/logo.png" as="image">
+    <link rel="preload" href="./asset/img/lvdla.webp" as="image">
+    <link rel="preload" href="./asset/img/mission_impossible.webp" as="image">
+    <link rel="preload" href="./asset/img/puj.webp" as="image">
+    <link rel="preload" href="./asset/img/radio_prague.webp" as="image">
+    <link rel="preload" href="./asset/img/sinners.webp" as="image">
+    <link rel="preload" href="./asset/img/the_phoenicia_scheme.webp" as="image">
+    <link rel="preload" href="./asset/img/thunderbolt.webp" as="image">
+    <link rel="preload" href="./asset/img/uc.webp" as="image">
+    <link rel="preload" href="./asset/img/until_down.webp" as="image">
+
+    <!-- Scripts JavaScript : Chargés en tant que modules.
+    L'attribut 'defer' est recommandé pour les scripts qui n'interfèrent pas avec le rendu initial du DOM. -->
+    <script type="module" src="./js/utility/hashing.js" defer></script>
+    <script type="module" src="./js/api/localStorageManager.js" defer></script>
+    <script type="module" src="./js/utility/navigationManager.js" defer></script> <!-- Ajout de 'defer' ici -->
+
 </head>
 <body class="body-card">
     <header class="header-card">
