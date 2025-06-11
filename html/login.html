@@ -18,6 +18,7 @@
     <script type="module" src="../js/utility/hashing.js" defer></script>
     <script type="module" src="../js/api/localStorageManager.js" defer></script>
     <script type="module" src="../js/html/login.js" defer></script>
+    <script type="module" src="../js/utility/navigationManager.js"></script>
     <title>Inscription du cinéma fictif de Kamihate</title>
 </head>
 <body class="body-card">
@@ -26,19 +27,19 @@
         <nav class="header-nav">
             <div class="desktop-menu">
                 <a href="../index.html" class="list-link -activeall">Accueil</a>
-                <a href="./signup.html" class="list-link  -disabledformember -disabledforadmin">Inscription</a>
-                <a href="./login.html" class="list-link -disabledformember -disabledforadmin">Connexion</a>
-                <a href="./member_space.html" class="list-link -disabledfornotmember -disabledforadmin">Espace membre</a>
-                <a href="./admin_panel.html" class="list-link -disabledfornotmember -disabledfornotadmin">Panneau d'administration</a>
-                <a href="../index.html" class="list-link -disabledfornotmember -disabledfornotadmin">Deconnexion</a>
+                <a href="./signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="./login.html" class="list-link -activenotmember">Connexion</a>
+                <a href="./member_space.html" class="list-link -activemember">Espace membre</a>
+                <a href="./admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
+                <a href="../index.html" class="list-link -activeconnect">Deconnexion</a>
             </div>
             <div class="mobile-nav hidden">
-                <a href="./index.html" class="list-link -activeall">Accueil</a>
-                <a href="./html/signup.html" class="list-link  -disabledformember -disabledforadmin">Inscription</a>
-                <a href="./html/login.html" class="list-link -disabledformember -disabledforadmin">Connexion</a>
-                <a href="./html/member_space.html" class="list-link -disabledfornotmember -disabledforadmin">Espace membre</a>
-                <a href="./html/admin_panel.html" class="list-link -disabledfornotmember -disabledfornotadmin">Panneau d'administration</a>
-                <a href="./index.html" class="list-link -disabledfornotmember -disabledfornotadmin">Deconnexion</a>
+                <a href="../index.html" class="list-link -activeall">Accueil</a>
+                <a href="./signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="./login.html" class="list-link -activenotmember">Connexion</a>
+                <a href="./member_space.html" class="list-link -activemember">Espace membre</a>
+                <a href="./admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
+                <a href="../index.html" class="list-link -activeconnect">Deconnexion</a>
             </div>
             <div class="burger-menu" id="burger-menu">
                 <span></span>
