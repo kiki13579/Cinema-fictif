@@ -24,6 +24,7 @@
     {
       "id": "film_0",
       "titre": "Aventure au sommet",
+      "descriptif": "",
       "stock_places": 48,
       "prix_place": "price"
     }
