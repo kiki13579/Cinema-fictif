@@ -3,42 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La page d'espace membre d'un site de cinema fictif concu par Kamihate">
-    <meta property="og:title" content="Espace membre du cinéma fictif de Kamihate">
-    <meta property="og:description" content="La page d'espace membre d'un site de cinema fictif concu par Kamihate.">
+    
+    <!-- Balise Title : Unique et descriptive pour le SEO. -->
+    <title>Espace Membre - Cinéma Fictif - Tableau de bord</title>
+
+    <!-- Méta-description : Résumé concis de la page pour les moteurs de recherche. -->
+    <meta name="description" content="Accédez à votre espace membre personnel du Cinéma Fictif. Gérez votre profil, vos réservations, et découvrez des contenus exclusifs.">
+    
+    <!-- Balises Open Graph (OG) : Pour un meilleur affichage lorsque la page est partagée sur les réseaux sociaux. -->
+    <meta property="og:title" content="Espace Membre du Cinéma Fictif de Kamihate">
+    <meta property="og:description" content="Gérez votre compte et profitez des avantages exclusifs de l'espace membre du Cinéma Fictif.">
     <meta property="og:url" content="https://mini-cinema-fictif.kamihate.fr/html/member_space.html">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="profile"> <!-- 'profile' ou 'website' peut être approprié -->
+    
+    <!-- Méta-auteur : Information sur l'auteur de la page. -->
     <meta name="author" content="Kamihate">
-    <meta name="robots" content="index, follow">
+    
+    <!-- Balise Robots : Indique aux moteurs de recherche de ne pas indexer cette page si elle est derrière une connexion. -->
+    <!-- Si la page est accessible sans login, laissez 'index, follow'. Sinon, 'noindex, nofollow'. -->
+    <meta name="robots" content="noindex, nofollow"> 
+    
+    <!-- Balise Canonique : Évite le contenu dupliqué en indiquant l'URL préférée de cette page. -->
     <link rel="canonical" href="https://mini-cinema-fictif.kamihate.fr/html/member_space.html">
+    
+    <!-- Liens CSS : Assurez-vous que les chemins relatifs (../) sont corrects. -->
     <link rel="stylesheet" href="../css/root.css">
-    <link rel="stylesheet" href="../css/html/member_space.css">
-    <link rel="stylesheet" href="../css/utility/forms.css">
+    <link rel="stylesheet" href="../css/html/member_space.css"> <!-- Votre CSS spécifique pour cette page -->
     <link rel="stylesheet" href="../css/utility/responsiv.css">
+    
+    <!-- Liens Preload : Préchargez UNIQUEMENT les ressources critiques visibles au-dessus de la ligne de flottaison (LCP)
+         spécifiques à cette page, comme le logo ou une image de fond principale. -->
+    <link rel="preload" href="../asset/img/logo.png" as="image">
+
+    <!-- Scripts JavaScript : Chargés en tant que modules. -->
     <script type="module" src="../js/utility/hashing.js" defer></script>
     <script type="module" src="../js/api/localStorageManager.js" defer></script>
     <script type="module" src="../js/utility/navigationManager.js"></script>
-    <title>Panneau de l'espace Membre du cinéma fictif - Informations personnelles</title>
 </head>
 <body class="body-card">
     <header class="header-card">
         <h1 class="header-h1">Cinéma Fictif</h1>
         <nav class="header-nav">
             <div class="desktop-menu">
-                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeall">Accueil</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/signup.html" class="list-link  -activenotmember">Inscription</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/login.html" class="list-link -activenotmember">Connexion</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/member_space.html" class="list-link -activemember">Espace membre</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeconnect">Deconnexion</a>
+                <a href="../index.html" class="list-link -activeall">Accueil</a>
+                <a href="./signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="./login.html" class="list-link -activenotmember">Connexion</a>
+                <a href="./member_space.html" class="list-link -activemember">Espace membre</a>
+                <a href="./admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
+                <a href="#" class="list-link -activeconnect">Deconnexion</a>
             </div>
             <div class="mobile-nav hidden">
-                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeall">Accueil</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/signup.html" class="list-link  -activenotmember">Inscription</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/login.html" class="list-link -activenotmember">Connexion</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/member_space.html" class="list-link -activemember">Espace membre</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeconnect">Deconnexion</a>
+                <a href="../index.html" class="list-link -activeall">Accueil</a>
+                <a href="./signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="./login.html" class="list-link -activenotmember">Connexion</a>
+                <a href="./member_space.html" class="list-link -activemember">Espace membre</a>
+                <a href="./admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
+                <a href="#" class="list-link -activeconnect">Deconnexion</a>
             </div>
             <div class="burger-menu" id="burger-menu">
                 <span></span>
@@ -48,45 +68,40 @@
         </nav>
     </header>
 
-    <main class="main-hero">
-        <section class="section-card">
-            <h2 class="section-h2">S'inscrire</h2>
-            <form action="#" method="post" id="forms">
-                <div>
-                    <label for="username">Nom d'utilisateur : </label>
-                    <input type="text" id="username" name="username" required placeholder="Kamihate">
-                </div>
-                <div>
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required placeholder="********">
-                </div>
-                <div>
-                    <label for="confirm_password">Confirmer le mot de passe</label>
-                    <input type="password" id="confirm_password" name="confirm_password" required placeholder="********">
-                </div>
-                <div class="content">
-                    <input type="checkbox" id="consent" name="consent" required>
-                    <label for="consent">En validant l'inscription, vous acceptez que vos données soient collectées à des fins d'amélioration et de compréhension de la clientèle.</label>                </div>
-                <button type="submit" id="btn-validation" class="btn">Valider</button>
-            </form>
-        </section>
-        <section class="section-card">
-            <h2 class="section-h2">Se connecter</h2>
-            <p>Vous avez desja un compte aller vous connectez des maintenant</p>
-            <button class="btn"> Connexion</button>
-        </section>
-    </main>
+    <div class="member-space-wrapper">
+        <!-- Barre latérale de navigation (Aside dans le concept de l'image) -->
+        <nav class="member-sidebar">
+            <div class="sidebar-search">
+                <input type="text" placeholder="Rechercher">
+                <button type="button" aria-label="Rechercher">🔍</button>
+            </div>
+            <ul class="sidebar-menu">
+                <button class="btn-sidebar">Tableau de bord</button>
+                <button class="btn-sidebar">Modifier vos informations</button>
+                <button class="btn-sidebar">Votre historiques</button>
+                <button class="btn-sidebar">Votre compte</button>
+            </ul>
+        </nav>
+
+        <!-- Contenu basique et dynamique -->
+        <main class="member-dashboard-content">
+            <h1 class="dashboard-title">Tableau de bord</h1>
+            <section class="card-container">
+                <!-- Contenue dynamique ici -->
+            </section>
+        </main>
+    </div>
 
     <footer class="footer-card">
         <img src="../asset/img/logo.png" alt="Logo Cinéma Fictif" class="logo-img">
         <div class="footer-links">
-            <a href="#" class="footer-link">A propos de nous</a>
-            <a href="#" class="footer-link">Mentions légales</a>
-            <a href="#" class="footer-link">RGPD</a>
-            <a href="#" class="footer-link">CGU</a>
-            <a href="#" class="footer-link">Copyright</a>
+            <a href="./about_us.html" class="footer-link">A propos de nous</a>
+            <a href="./legal_mention.html" class="footer-link">Mentions légales</a>
+            <a href="./rgpd.html" class="footer-link">RGPD</a>
+            <a href="./cgu.html" class="footer-link">CGU</a>
+            <a href="./copyright.html" class="footer-link">Copyright</a>
         </div>
-        <p class="f-p">&copy; 12/06/2025 Cinéma Fictif. Design and create by Kamihate. Tous droits réservés.</p>
+        <p class="f-p">&copy; <span id="current-year-footer">2025</span> Cinéma Fictif. Design and create by Kamihate. Tous droits réservés.</p>
     </footer>
 </body>
 </html>

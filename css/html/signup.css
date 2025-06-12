@@ -1,0 +1,36 @@
+.section-card {
+    background-color: var(--background-tertiary);
+    border-radius: var(--border-radius);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.section-card>p {
+    padding: 1rem;
+    margin: 1rem;
+    text-wrap: wrap;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    padding:  0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: none;
+}
+.btn:hover {
+    background-color: bisque;
+    color: darkslategray;
+}
+.login-link {
+    text-align: center;
+}
+.login-link a {
+    text-decoration: none;
+    color: white;
+}
+.login-link a:hover {
+    color: aquamarine;
+}

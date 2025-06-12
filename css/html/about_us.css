@@ -1,0 +1,210 @@
+.about-page-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur les petits écrans */
+    justify-content: center;
+    gap: calc(2.5 * var(--spacing-unit)); /* Espacement entre main et aside (ex: 20px) */
+    padding: calc(3.75 * var(--spacing-unit)) calc(2.5 * var(--spacing-unit)); /* Padding global (ex: 30px 20px) */
+    max-width: 75rem; /* Largeur maximale du contenu (ex: 1200px) */
+    margin: 0 auto; /* Centrage du wrapper */
+    flex-grow: 1; /* Permet au wrapper de prendre l'espace restant, poussant le footer vers le bas */
+}
+.main-about-content {
+    flex: 2; /* Prend deux fois plus d'espace que l'aside par défaut */
+    min-width: 37.5rem; /* Largeur minimale avant de passer à la ligne (ex: 600px) */
+    background-color: var(--background-secondary); /* Fond gris foncé de :root */
+    padding: calc(3.75 * var(--spacing-unit)); /* Ex: 30px */
+    border-radius: 0.75rem; /* Ex: 12px */
+    box-shadow: var(--box-shadow);
+    line-height: 1.6; /* Améliore la lisibilité des paragraphes */
+    font-size: 1rem; /* Taille de police de base pour le contenu principal */
+    color: var(--color-text); /* Texte blanc */
+}
+.main-title {
+    font-family: var(--font-h1); /* Utilise la police H1 */
+    font-size: 2rem; /* Grande taille pour le titre principal */
+    color: var(--link-primary); /* Texte blanc (ou couleur de lien primaire) */
+    margin-bottom: calc(2.5 * var(--spacing-unit)); /* Ex: 20px */
+    text-align: center;
+}
+.section-subtitle {
+    font-family: var(--font-h2); /* Utilise la police H2 */
+    font-size: 1.8rem;
+    color: var(--color-text); /* Couleur grise foncée pour les sous-titres */
+    margin-top: calc(3.75 * var(--spacing-unit)); /* Ex: 30px */
+    margin-bottom: calc(1.875 * var(--spacing-unit)); /* Ex: 15px */
+    text-align: left;
+}
+.main-about-content p {
+    margin-bottom: 1rem;
+    color: var(--color-text); /* Texte blanc */
+}
+.main-about-content p a {
+    color: var(--link-primary); /* Couleur de lien primaire */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.main-about-content p a:hover {
+    color: var(--link-hover); /* Couleur de lien au survol */
+    text-decoration: underline;
+}
+.timeline {
+    border-left: 0.125rem solid var(--background-tertiary); /* Ligne de temps (ex: 2px) */
+    padding-left: calc(2.5 * var(--spacing-unit)); /* Espacement par rapport à la ligne */
+    margin-top: calc(2.5 * var(--spacing-unit)); /* Ex: 20px */
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: calc(2.5 * var(--spacing-unit)); /* Ex: 20px */
+    padding-bottom: 0.5rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-2.5 * var(--spacing-unit) - 0.0625rem); /* Positionne le point sur la ligne (ex: -20px - 1px) */
+    top: 0.5rem;
+    width: 0.75rem; /* Ex: 12px */
+    height: 0.75rem; /* Ex: 12px */
+    background-color: var(--link-primary); /* Point de couleur (blanc) */
+    border-radius: 50%;
+    border: 0.125rem solid var(--background-secondary); /* Bordure du point */
+}
+
+.timeline-title {
+    font-size: 1.2rem;
+    color: var(--link-primary); /* Texte blanc */
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.values-list {
+    list-style: none; /* Supprime les puces par défaut */
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.values-list li {
+    background-color: var(--button-primary); /* Couleur de fond pour chaque item de la liste */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.625rem; /* Ex: 10px */
+    color: var(--color-text); /* Texte blanc */
+    border: 0.0625rem solid var(--background-secondary);
+}
+
+.values-list li:last-child {
+    margin-bottom: 0;
+}
+
+.values-list li strong {
+    color: var(--link-primary); /* Couleur de texte forte pour les titres d'items */
+}
+.sidebar-about-content {
+    flex: 1; /* Prend une fois plus d'espace */
+    min-width: 18.75rem; /* Largeur minimale pour l'aside (ex: 300px) */
+    background-color: var(--background-secondary); /* Fond gris foncé de :root */
+    padding: calc(3.75 * var(--spacing-unit)); /* Ex: 30px */
+    border-radius: 0.75rem; /* Ex: 12px */
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: calc(2.5 * var(--spacing-unit)); /* Ex: 20px entre les sections de l'aside */
+}
+.aside-title {
+    font-size: 1.5rem;
+    color: var(--link-primary); /* Texte blanc */
+    margin-bottom: calc(3 * var(--spacing-unit)); /* Ex: 10px */
+    text-align: center;
+}
+.facts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.facts-list li {
+    margin-bottom: 0.5rem;
+    color: var(--color-text); /* Texte blanc */
+}
+.contact-info p {
+    margin-bottom: 0.5rem;
+    color: var(--color-text); /* Texte blanc */
+}
+
+.contact-info a {
+    color: var(--link-primary); /* Couleur de lien primaire */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-info a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: calc(3.5 * var(--spacing-unit)); /* Ex: 10px */
+}
+
+.social-links li a {
+    background-color: var(--button-primary); /* Fond du bouton social */
+    color: var(--color-text); /* Texte blanc */
+    padding: 0.625rem 1rem; /* Ex: 10px 16px */
+    border-radius: var(--border-radius); /* Coins arrondis */
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.2s ease;
+    font-weight: 500;
+    border: 0.0625rem solid var(--background-secondary);
+}
+
+.social-links li a:hover {
+    background-color: var(--button-hover); /* Changement de fond au survol */
+    color: var(--link-hover);
+}
+@media (max-width: 62.5rem) { /* 1000px - Ajuste le point de rupture si nécessaire */
+    .about-page-wrapper {
+        flex-direction: column; /* Empile main et aside verticalement */
+        padding: calc(2.5 * var(--spacing-unit)); /* Réduit le padding global (ex: 20px) */
+    }
+
+    .main-about-content, .sidebar-about-content {
+        min-width: unset; /* Supprime la largeur minimale pour la flexibilité */
+    }
+
+    .main-title {
+        font-size: 2.2rem; /* Réduit la taille du titre principal sur mobile */
+    }
+
+    .section-subtitle {
+        font-size: 1.5rem; /* Réduit la taille des sous-titres */
+    }
+}
+@media (max-width: 37.5rem) { /* 600px - Pour les téléphones */
+    .about-page-wrapper {
+        padding: calc(1.25 * var(--spacing-unit)); /* Réduit encore le padding (ex: 10px) */
+    }
+
+    .main-about-content, .sidebar-about-content {
+        padding: calc(2.5 * var(--spacing-unit)); /* Ex: 20px */
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .timeline {
+        padding-left: calc(1.5 * var(--spacing-unit)); /* Réduit le padding de la timeline */
+    }
+
+    .timeline-item::before {
+        left: calc(-1.5 * var(--spacing-unit) - 0.0625rem);
+    }
+}

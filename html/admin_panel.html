@@ -18,6 +18,7 @@
     <script type="module" src="../js/api/localStorageManager.js" defer></script>
     <script type="module" src="../js/utility/navigationManager.js"></script>
     <script type="module" src="../js/html/admin_panel.js"></script>
+    <script type="module" src="../js/utility/auto_datetime.js" defer></script>
     <title>Panneau d'administration du Cinéma Fictif - Modification des données</title>
 </head>
 <body>
@@ -25,20 +26,20 @@
         <h1 class="header-h1">Cinéma Fictif</h1>
         <nav class="header-nav">
             <div class="desktop-menu">
-                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeall">Accueil</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/signup.html" class="list-link  -activenotmember">Inscription</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/login.html" class="list-link -activenotmember">Connexion</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/member_space.html" class="list-link -activemember">Espace membre</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeconnect">Deconnexion</a>
+                <a href="../index.html" class="list-link -activeall">Accueil</a>
+                <a href="./signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="./login.html" class="list-link -activenotmember">Connexion</a>
+                <a href="./member_space.html" class="list-link -activemember">Espace membre</a>
+                <a href="./admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
+                <a href="#" class="list-link -activeconnect">Deconnexion</a>
             </div>
             <div class="mobile-nav hidden">
-                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeall">Accueil</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/signup.html" class="list-link  -activenotmember">Inscription</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/login.html" class="list-link -activenotmember">Connexion</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/member_space.html" class="list-link -activemember">Espace membre</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/html/admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
-                <a href="https://mini-cinema-fictif.kamihate.fr/index.html" class="list-link -activeconnect">Deconnexion</a>
+                <a href="../index.html" class="list-link -activeall">Accueil</a>
+                <a href="./signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="./login.html" class="list-link -activenotmember">Connexion</a>
+                <a href="./member_space.html" class="list-link -activemember">Espace membre</a>
+                <a href="./admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
+                <a href="#" class="list-link -activeconnect">Deconnexion</a>
             </div>
             <div class="burger-menu" id="burger-menu">
                 <span></span>
@@ -50,13 +51,13 @@
     <footer class="footer-card">
         <img src="./asset/img/logo.png" alt="Logo Cinéma Fictif" class="logo-img">
         <div class="footer-links">
-            <a href="#" class="footer-link">A propos de nous</a>
-            <a href="#" class="footer-link">Mentions légales</a>
-            <a href="#" class="footer-link">RGPD</a>
-            <a href="#" class="footer-link">CGU</a>
-            <a href="#" class="footer-link">Copyright</a>
+            <a href="./about_us.html" class="footer-link">A propos de nous</a>
+            <a href="./legal_mention.html" class="footer-link">Mentions légales</a>
+            <a href="./rgpd.html" class="footer-link">RGPD</a>
+            <a href="./cgu.html" class="footer-link">CGU</a>
+            <a href="./copyright.html" class="footer-link">Copyright</a>
         </div>
-        <p class="f-p">&copy; 12/06/2025 Cinéma Fictif. Design and create by Kamihate. Tous droits réservés.</p>
+        <p class="f-p">&copy; <span id="current-year-footer">2025</span> Cinéma Fictif. Design and create by Kamihate. Tous droits réservés.</p>
     </footer>
 </body>
 </html>

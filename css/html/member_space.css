@@ -1,0 +1,466 @@
+.member-space-wrapper {
+    display: flex;
+    flex-grow: 1; /* Permet au wrapper de prendre l'espace restant, poussant le footer vers le bas */
+    max-width: 90rem; /* Largeur maximale pour l'ensemble du tableau de bord (ex: 1440px) */
+    margin: var(--spacing-unit) auto calc(2.5 * var(--spacing-unit)); /* Marge au-dessus, auto latéralement, marge en bas */
+    border-radius: 0.75rem; /* Coins arrondis pour l'ensemble */
+    overflow: hidden; /* Assure que le contenu n'échappe pas des bords arrondis */
+    box-shadow: var(--box-shadow); /* Ombre générale pour le wrapper */
+    background-color: var(--background-quaternary); /* Fond gris foncé pour le wrapper */
+    border: 0.0625rem solid var(--background-secondary); /* Bordure subtile */
+}
+
+/* Styles pour la barre latérale de navigation */
+.member-sidebar {
+    background-color: var(--background-tertiary); /* Fond gris clair pour la sidebar */
+    width: 15.625rem; /* Largeur fixe de la sidebar (ex: 250px) */
+    flex-shrink: 0; /* Empêche la sidebar de rétrécir */
+    padding: calc(2.5 * var(--spacing-unit)) calc(1.875 * var(--spacing-unit)); /* Padding (ex: 20px 15px) */
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text); /* Texte blanc */
+}
+
+.sidebar-search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Ex: 8px */
+    margin-bottom: calc(2.5 * var(--spacing-unit)); /* Ex: 20px */
+}
+
+.sidebar-search input[type="text"] {
+    flex-grow: 1;
+    padding: 0.625rem 0.9375rem; /* Ex: 10px 15px */
+    border: 0.0625rem solid var(--background-secondary); /* Bordure */
+    border-radius: 0.5rem; /* Coins arrondis */
+    background-color: var(--background-quaternary); /* Fond sombre pour l'input */
+    color: var(--color-text); /* Texte blanc */
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.sidebar-search input[type="text"]::placeholder {
+    color: var(--background-quinary); /* Gris clair pour le placeholder */
+}
+
+.sidebar-search input[type="text"]:focus {
+    border-color: var(--link-primary); /* Bordure blanche au focus */
+}
+
+.sidebar-search button {
+    background: none;
+    border: none;
+    color: var(--color-text); /* Icône blanche */
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-search button:hover {
+    background-color: var(--background-secondary); /* Fond gris au survol */
+}
+
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem; /* Ex: 10px entre les items de menu */
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem; /* Ex: 10px entre l'icône et le texte */
+    padding: 0.75rem 1rem; /* Ex: 12px 16px */
+    color: var(--color-text); /* Texte blanc */
+    text-decoration: none;
+    border-radius: 0.5rem; /* Coins arrondis */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.sidebar-menu li a .icon {
+    font-size: 1.1rem; /* Taille des icônes */
+}
+
+.sidebar-menu li a:hover {
+    background-color: var(--background-secondary); /* Fond gris foncé au survol */
+}
+
+.sidebar-menu li a.active {
+    background-color: var(--button-primary); /* Fond noir pour l'élément actif */
+    color: var(--link-primary); /* Texte blanc */
+    font-weight: 700;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); /* Ombre pour l'actif */
+}
+
+/* Styles pour le contenu principal du tableau de bord */
+.member-dashboard-content {
+    flex-grow: 1; /* Prend l'espace restant */
+    padding: calc(3.75 * var(--spacing-unit)); /* Ex: 30px */
+    background-color: var(--backgtound-primary); /* Fond noir */
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    gap: calc(3.75 * var(--spacing-unit)); /* Ex: 30px entre les sections */
+}
+
+.dashboard-title {
+    font-family: var(--font-h1); /* Utilise la police H1 */
+    font-size: 2.5rem;
+    color: var(--link-primary); /* Texte blanc */
+    margin-bottom: calc(1.25 * var(--spacing-unit)); /* Ex: 10px */
+}
+
+.view-documentation-link {
+    display: block; /* S'assure que le lien est sur sa propre ligne */
+    text-align: right;
+    color: var(--link-primary); /* Lien blanc */
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: calc(3.75 * var(--spacing-unit)); /* Ex: 30px */
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.view-documentation-link:hover {
+    color: var(--link-hover); /* Lien gris clair au survol */
+    text-decoration: underline;
+}
+
+/* Section des cartes d'information rapide */
+.info-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); /* Auto-fit avec min 250px */
+    gap: calc(1.875 * var(--spacing-unit)); /* Ex: 15px */
+}
+
+.info-card {
+    background-color: var(--background-quaternary); /* Fond gris foncé */
+    padding: calc(2.5 * var(--spacing-unit)); /* Ex: 20px */
+    border-radius: 0.5rem; /* Ex: 8px */
+    box-shadow: var(--box-shadow);
+    color: var(--color-text);
+    border: 0.0625rem solid var(--background-secondary); /* Bordure */
+    text-align: left;
+}
+
+.info-card .card-title {
+    font-size: 1.1rem;
+    color: var(--background-secondary); /* Gris foncé pour les titres de carte */
+    margin-bottom: 0.625rem; /* Ex: 10px */
+    font-weight: 600;
+}
+
+.info-card .card-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--link-primary); /* Blanc pour les valeurs principales */
+    margin-bottom: 0.3125rem; /* Ex: 5px */
+}
+
+.info-card .card-sub-value {
+    font-size: 0.9rem;
+    color: var(--background-tertiary); /* Gris plus clair pour les sous-valeurs */
+    margin-bottom: 0.3125rem; /* Ex: 5px */
+}
+
+.info-card.server-info-card {
+    /* Styles spécifiques pour la carte serveur si besoin */
+}
+
+/* Section Performances */
+.performance-section {
+    background-color: var(--background-quaternary);
+    padding: calc(2.5 * var(--spacing-unit));
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    border: 0.0625rem solid var(--background-secondary);
+    position: relative;
+}
+
+.performance-section .section-heading {
+    font-size: 1.5rem;
+    color: var(--link-primary);
+    margin-bottom: calc(1.25 * var(--spacing-unit));
+    text-align: left;
+}
+
+.performance-section .details-link {
+    position: absolute;
+    top: calc(2.5 * var(--spacing-unit));
+    right: calc(2.5 * var(--spacing-unit));
+    color: var(--link-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.performance-section .details-link:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+.performance-chart {
+    height: 12.5rem; /* Hauteur du graphique (ex: 200px) */
+    background-color: var(--backgtound-primary); /* Fond noir du graphique */
+    border-radius: 0.3125rem; /* Ex: 5px */
+    margin-top: calc(1.25 * var(--spacing-unit));
+    padding: var(--spacing-unit); /* Ex: 8px */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden; /* Pour les barres */
+}
+
+.chart-legend {
+    display: flex;
+    gap: calc(1.25 * var(--spacing-unit));
+    font-size: 0.85rem;
+    color: var(--background-quinary); /* Gris clair pour la légende */
+    margin-bottom: 0.625rem;
+}
+
+.legend-item::before {
+    content: '';
+    display: inline-block;
+    width: 0.75rem; /* Ex: 12px */
+    height: 0.75rem; /* Ex: 12px */
+    border-radius: 0.1875rem; /* Ex: 3px */
+    margin-right: 0.3125rem; /* Ex: 5px */
+    vertical-align: middle;
+}
+
+.legend-item.blue::before {
+    background-color: #007bff; /* Couleur spécifique pour le graphique */
+}
+.legend-item.green::before {
+    background-color: #28a745; /* Couleur spécifique pour le graphique */
+}
+
+.chart-area {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end; /* Align bars to bottom */
+    gap: 0.125rem; /* Gap between bars (ex: 2px) */
+    position: relative;
+    overflow: hidden; /* Hide overflowing bars */
+}
+
+.chart-bar {
+    background-color: rgba(0, 123, 255, 0.7); /* Example bar color */
+    width: 10%; /* Adjust as needed */
+    border-radius: 0.125rem; /* Small rounded tops */
+    transition: height 0.3s ease;
+}
+
+.chart-bar.blue-bar {
+    background-color: #007bff;
+}
+
+.chart-bar.green-bar {
+    background-color: #28a745;
+}
+
+.chart-line {
+    position: absolute;
+    bottom: 25%; /* Example position for average line */
+    left: 0;
+    width: 100%;
+    height: 0.0625rem; /* 1px line */
+    background-color: #ffc107; /* Orange/Jaune pour la ligne moyenne */
+}
+
+.chart-dates {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--background-tertiary); /* Gris clair pour les dates */
+    margin-top: 0.625rem;
+}
+
+
+/* Section Domaines les plus visités */
+.most-visited-domains-section {
+    background-color: var(--background-quaternary);
+    padding: calc(2.5 * var(--spacing-unit));
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    border: 0.0625rem solid var(--background-secondary);
+}
+
+.most-visited-domains-section .section-heading {
+    font-size: 1.5rem;
+    color: var(--link-primary);
+    margin-bottom: calc(1.875 * var(--spacing-unit));
+    text-align: left;
+}
+
+.domains-table {
+    width: 100%;
+    border-collapse: collapse; /* Collapsing borders */
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.domains-table th, .domains-table td {
+    padding: 0.75rem 1rem; /* Ex: 12px 16px */
+    text-align: left;
+    border-bottom: 0.0625rem solid var(--background-secondary); /* Bordure de ligne */
+}
+
+.domains-table th {
+    background-color: var(--button-primary); /* Fond noir pour l'entête */
+    color: var(--link-primary); /* Texte blanc */
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.domains-table tbody tr:hover {
+    background-color: var(--background-secondary); /* Gris foncé au survol des lignes */
+}
+
+.domains-table .action-btn {
+    background-color: var(--button-primary); /* Fond noir pour le bouton d'action */
+    color: var(--link-primary); /* Texte blanc */
+    border: 0.0625rem solid var(--background-tertiary);
+    padding: 0.3125rem 0.625rem; /* Ex: 5px 10px */
+    border-radius: 0.3125rem; /* Ex: 5px */
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.domains-table .action-btn:hover {
+    background-color: var(--button-hover); /* Gris au survol */
+    border-color: var(--link-primary); /* Bordure blanche au survol */
+}
+
+/* Section Change Log */
+.change-log-section {
+    background-color: var(--background-quaternary);
+    padding: calc(2.5 * var(--spacing-unit));
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    border: 0.0625rem solid var(--background-secondary);
+    position: relative;
+}
+
+.change-log-section .section-heading {
+    font-size: 1.5rem;
+    color: var(--link-primary);
+    margin-bottom: calc(1.875 * var(--spacing-unit));
+    text-align: left;
+}
+
+.expand-log-btn {
+    position: absolute;
+    top: calc(2.5 * var(--spacing-unit));
+    right: calc(2.5 * var(--spacing-unit));
+    background: none;
+    border: none;
+    color: var(--background-quinary); /* Gris clair pour l'icône */
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.expand-log-btn:hover {
+    color: var(--link-primary);
+    background-color: var(--background-secondary);
+}
+
+.log-entries {
+    margin-top: calc(1.25 * var(--spacing-unit)); /* Ex: 10px */
+}
+
+.log-date {
+    font-weight: 600;
+    color: var(--background-tertiary); /* Gris plus clair pour la date */
+    margin-bottom: 0.625rem;
+    font-size: 0.95rem;
+}
+
+.log-list {
+    list-style: disc inside; /* Puces par défaut */
+    padding-left: 1.25rem; /* Ex: 20px */
+    margin: 0;
+}
+
+.log-list li {
+    margin-bottom: 0.3125rem; /* Ex: 5px */
+    color: var(--color-text);
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries pour la Responsivité --- */
+@media (max-width: 62.5rem) { /* 1000px - Tablette */
+    .member-space-wrapper {
+        flex-direction: column; /* Empile sidebar et contenu */
+        margin: calc(1.25 * var(--spacing-unit)) auto; /* Marge réduite */
+        border-radius: 0; /* Pas de coins arrondis si le wrapper prend toute la largeur */
+    }
+
+    .member-sidebar {
+        width: 100%; /* Sidebar prend toute la largeur */
+        border-radius: 0; /* Pas de coins arrondis */
+        padding: calc(1.875 * var(--spacing-unit)); /* Padding réduit */
+    }
+
+    .member-dashboard-content {
+        padding: calc(2.5 * var(--spacing-unit)); /* Padding réduit */
+    }
+
+    .info-cards-grid {
+        grid-template-columns: 1fr; /* Une seule colonne pour les cartes */
+    }
+
+    .dashboard-title {
+        font-size: 2rem;
+    }
+
+    .performance-chart {
+        height: 10rem; /* Hauteur réduite pour le graphique */
+    }
+
+    .domains-table th, .domains-table td {
+        padding: 0.625rem 0.75rem; /* Padding réduit pour le tableau */
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 37.5rem) { /* 600px - Mobile */
+    .member-space-wrapper {
+        margin: 0; /* Pas de marge latérale */
+    }
+
+    .member-sidebar, .member-dashboard-content {
+        padding: calc(1.25 * var(--spacing-unit)); /* Padding encore plus réduit */
+    }
+
+    .dashboard-title {
+        font-size: 1.8rem;
+    }
+
+    .sidebar-search input {
+        font-size: 0.85rem;
+    }
+
+    .sidebar-menu li a {
+        font-size: 0.9rem;
+        padding: 0.625rem 0.75rem;
+    }
+
+    .info-card .card-value {
+        font-size: 1.3rem;
+    }
+}

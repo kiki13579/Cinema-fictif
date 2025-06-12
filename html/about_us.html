@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Balise Title : Cruciale pour le SEO. Définie en premier pour sa priorité. -->
+    <title>À propos du Cinéma Fictif - Notre histoire et notre équipe</title>
+
+    <!-- Méta-description : Résumé de la page pour les moteurs de recherche et les utilisateurs. -->
+    <meta name="description" content="Découvrez l'histoire et les valeurs du Cinéma Fictif. Apprenez-en plus sur notre équipe et notre passion pour le cinéma.">
+    
+    <!-- Balises Open Graph (OG) : Pour un meilleur affichage sur les réseaux sociaux. -->
+    <meta property="og:title" content="À propos du Cinéma Fictif - Notre histoire et notre équipe">
+    <meta property="og:description" content="Découvrez l'histoire et les valeurs du Cinéma Fictif. Apprenez-en plus sur notre équipe et notre passion pour le cinéma.">
+    <meta property="og:url" content="https://mini-cinema-fictif.kamihate.fr/html/about_us.html"> <!-- URL canonique préférée -->
+    <meta property="og:type" content="website"> <!-- Type de page pour la page d'accueil -->
+    
+    <!-- Méta-auteur : Utile pour l'information, sans impact direct sur le SEO. -->
+    <meta name="author" content="Kamihate">
+    
+    <!-- Balise Robots : Indique aux moteurs de recherche d'indexer la page et de suivre les liens. -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Balise Canonique : Évite le contenu dupliqué en indiquant la version préférée de l'URL. -->
+    <link rel="canonical" href="https://mini-cinema-fictif.kamihate.fr/html/about_us.html">
+    
+    <!-- Liens CSS : Chargent les feuilles de style de votre site. -->
+    <!-- L'ordre est important si les styles se chevauchent. -->
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/html/about_us.css">
+    <link rel="stylesheet" href="../css/utility/modale.css">
+    <link rel="stylesheet" href="../css/utility/responsiv.css">
+
+    <!-- Liens Preload pour les images LCP (Largest Contentful Paint) : -->
+    
+    <link rel="preload" href="../asset/img/logo.png" as="image">
+
+    <!-- Scripts JavaScript : Chargés en tant que modules. -->
+    <script type="module" src="../js/utility/hashing.js" defer></script>
+    <script type="module" src="../js/api/localStorageManager.js" defer></script>
+    <script type="module" src="../js/utility/navigationManager.js" defer></script>
+    <script type="module" src="../js/utility/auto_datetime.js" defer></script>
+</head>
+<body class="body-card">
+    <header class="header-card">
+        <h1 class="header-h1">Cinéma Fictif</h1>
+        <nav class="header-nav">
+            <div class="desktop-menu">
+                <a href="../index.html" class="list-link -activeall">Accueil</a>
+                <a href="./signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="./login.html" class="list-link -activenotmember">Connexion</a>
+                <a href="./member_space.html" class="list-link -activemember">Espace membre</a>
+                <a href="./admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
+                <a href="#" class="list-link -activeconnect">Deconnexion</a>
+            </div>
+            <div class="mobile-nav hidden">
+                <a href="../index.html" class="list-link -activeall">Accueil</a>
+                <a href="./signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="./login.html" class="list-link -activenotmember">Connexion</a>
+                <a href="./member_space.html" class="list-link -activemember">Espace membre</a>
+                <a href="./admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
+                <a href="#" class="list-link -activeconnect">Deconnexion</a>
+            </div>
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="about-page-wrapper">
+        <main class="main-about-content">
+        <h1 class="main-title">Bienvenue au Cinéma Fictif : Notre Histoire</h1>
+
+        <!-- Introduction et Mission -->
+        <section class="about-section about-intro">
+            <h2 class="section-subtitle">Qui sommes-nous ?</h2>
+            <p>Le Cinéma Fictif est un projet passionnant, né de l'imagination débordante de <strong>Kamihate</strong> en 2023. Conçu comme une plateforme expérimentale, il vise à repousser les limites de la création web tout en célébrant l'art cinématographique. Nous sommes un espace où la technologie et le cinéma se rencontrent pour offrir une expérience unique, bien que entièrement fictive, à nos visiteurs.</p>
+            <p>Notre mission est de démontrer les capacités de développement web moderne, en créant une interface utilisateur immersive pour un concept de cinéma qui n'existe que dans le code.</p>
+        </section>
+
+        <!-- Notre Histoire et Évolution -->
+        <section class="about-section about-story">
+            <h2 class="section-subtitle">Notre Parcours</h2>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <h3 class="timeline-title">2023 : La Naissance d'une Idée</h3>
+                    <p>Tout a commencé par une simple étincelle : l'envie de construire un site web de A à Z, intégrant des fonctionnalités complexes comme la gestion des utilisateurs, les réservations et un panneau d'administration, le tout sans base de données réelle. Le Cinéma Fictif a été conçu comme le terrain de jeu idéal pour cette ambition.</p>
+                </article>
+                <article class="timeline-item">
+                    <h3 class="timeline-title">2024 : Développement et Premières Fonctionnalités</h3>
+                    <p>L'année a été marquée par l'implémentation du système d'authentification robuste (hachage double couche), la gestion des films et des places via <code>localStorage</code>, et la mise en place d'une navigation dynamique. Chaque ligne de code a été une opportunité d'apprentissage et d'optimisation.</p>
+                </article>
+                <article class="timeline-item">
+                    <h3 class="timeline-title">2025 : Optimisation et Sécurité</h3>
+                    <p>Avec les retours et les nouvelles connaissances, le projet a évolué vers une optimisation approfondie du SEO, l'implémentation des en-têtes de sécurité (HSTS, X-Frame-Options, CSP, Referrer-Policy) et une amélioration continue de l'expérience utilisateur, notamment sur mobile.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Nos Valeurs Fondamentales -->
+        <section class="about-section about-values">
+            <h2 class="section-subtitle">Nos Valeurs</h2>
+            <ul class="values-list">
+                <li>
+                    <strong>Innovation Continue :</strong> Nous nous engageons à explorer les dernières technologies web pour améliorer sans cesse notre projet.
+                </li>
+                <li>
+                    <strong>Excellence Technique :</strong> La qualité du code, la sécurité et la performance sont au cœur de nos préoccupations.
+                </li>
+                <li>
+                    <strong>Apprentissage et Partage :</strong> Ce projet est une opportunité constante d'apprendre et de partager nos connaissances.
+                </li>
+                <li>
+                    <strong>Passion du Cinéma :</strong> Bien que fictif, l'amour du septième art est notre source d'inspiration.
+                </li>
+            </ul>
+        </section>
+
+        </main>
+
+        <!-- Barre latérale pour des informations complémentaires ou des faits rapides -->
+        <aside class="sidebar-about-content">
+        <!-- Section "En Bref" -->
+        <section class="aside-section quick-facts">
+            <h3 class="aside-title">En Bref</h3>
+            <ul class="facts-list">
+                <li><strong>Statut du projet :</strong> Fictif et expérimental</li>
+                <li><strong>Créateur :</strong> Kamihate</li>
+                <li><strong>Localisation :</strong> Châtellerault (France)</li>
+                <li><strong>Langages utilisés :</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Objectif principal :</strong> Démonstration technique</li>
+            </ul>
+        </section>
+
+        <!-- Section de Contact (informations fictives) -->
+        <section class="aside-section contact-info">
+            <h3 class="aside-title">Nous contacter</h3>
+            <p>Pour toute question ou information sur ce projet fictif :</p>
+            <p class="contact-detail"><strong>Email :</strong> <a href="contact.me@mini-cinema-fictif.kamihate.fr">contact.me@mini-cinema-fictif.kamihate.fr</a></p>
+            <p class="contact-detail"><strong>Adresse (fictive) :</strong><br>123 Rue de la Pellicule<br>86100 Châtellerault</p>
+        </section>
+
+        <!-- Section Suivez-nous (liens sociaux fictifs) -->
+        <section class="aside-section social-media">
+            <h3 class="aside-title">Suivez-nous (fictif)</h3>
+            <ul class="social-links">
+                <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a></li>
+                <li><a href="https://fr.linkedin.com" target="_blank" rel="noopener noreferrer">Linkedin</a></li>
+                <li><a href="https://fr.tipeee.com/financement-de-mon-portfolio-et-des-pages-lies/">Tipeee</a></li>
+            </ul>
+        </section>
+        </aside>
+    </div>
+
+    <footer class="footer-card">
+        <img src="../asset/img/logo.png" alt="Logo Cinéma Fictif" class="logo-img">
+        <div class="footer-links">
+            <a href="./about_us.html" class="footer-link">A propos de nous</a>
+            <a href="./legal_mention.html" class="footer-link">Mentions légales</a>
+            <a href="./rgpd.html" class="footer-link">RGPD</a>
+            <a href="./cgu.html" class="footer-link">CGU</a>
+            <a href="./copyright.html" class="footer-link">Copyright</a>
+        </div>
+        <p class="f-p">&copy; <span id="current-year-footer">2025</span> Cinéma Fictif. Design and create by Kamihate. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

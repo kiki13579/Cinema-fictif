@@ -1,6 +1,3 @@
-// signup.js
-
-// Importe les fonctions nécessaires depuis votre gestionnaire de LocalStorage.
 import { createUser, getUserByUsername, initializeLocalStorage } from '../api/localStorageManager.js';
 
 // Fonction utilitaire pour afficher un message d'erreur spécifique à un champ
@@ -29,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirmPassword');
-    const consentCheckbox = document.getElementById('consent'); // Nouvelle référence à la checkbox
+    const consentCheckbox = document.getElementById('consent'); // Référence à la checkbox
     const signupMessage = document.getElementById('signupMessage'); // Message général succès/échec
 
     // Références aux éléments de messages d'erreur spécifiques aux champs
@@ -49,8 +46,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // --- Logique de bascule de visibilité des mots de passe ---
     passwordToggleButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const inputField = button.previousElementSibling; // L'input est l'élément précédent le bouton
-            if (inputField && (inputField.type === 'password' || inputField.type === 'text')) {
+            // CORRECTION ICI : Cherche l'input à l'intérieur du même élément parent que le bouton
+            const inputField = button.parentElement.querySelector('input[type="password"], input[type="text"]'); 
+            
+            if (inputField) { // S'assurer que l'input a été trouvé
                 inputField.type = inputField.type === 'password' ? 'text' : 'password';
                 button.textContent = inputField.type === 'password' ? '👁️' : '🔒'; // Change l'icône
                 button.setAttribute('aria-label', inputField.type === 'password' ? 'Afficher le mot de passe' : 'Masquer le mot de passe');
@@ -99,14 +98,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         // --- Validations côté client plus détaillées ---
         let hasError = false; // Flag pour suivre les erreurs
 
+        // Validation du nom d'utilisateur
         if (username === '') {
             showError(signupMessage, "Le nom d'utilisateur ne peut pas être vide.");
             hasError = true;
-        } else if (username.length < 8 || username.length > 50) {
+        } else if (username.length < 3 || username.length > 50) {
             showError(signupMessage, "Le nom d'utilisateur doit contenir entre 3 et 50 caractères.");
             hasError = true;
         }
 
+        // Validation du mot de passe
         if (password === '') {
             showError(passwordErrorP, "Le mot de passe ne peut pas être vide.");
             hasError = true;
@@ -115,20 +116,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             hasError = true;
         }
 
+        // Validation de la confirmation du mot de passe
         if (password !== confirmPassword) {
             showError(confirmPasswordErrorP, "Les mots de passe ne correspondent pas.");
             hasError = true;
         }
 
+        // Validation du consentement
         if (!consentGiven) {
             showError(consentTextP, "Vous devez accepter les conditions pour continuer.");
             hasError = true;
         }
 
+        // Arrête le processus si des erreurs sont trouvées
         if (hasError) {
             signupMessage.textContent = "Veuillez corriger les erreurs dans le formulaire.";
             signupMessage.style.color = 'red';
-            return; // Arrête l'exécution si des erreurs sont trouvées
+            return;
         }
 
         // Si toutes les validations passent, tente l'inscription
@@ -153,11 +157,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 signupForm.reset(); // Vide les champs du formulaire après succès
 
                 setTimeout(() => {
-                    window.location.href = '../../html/login.html'; // Remplacez par votre page de connexion
+                    window.location.href = './login.html'; // Remplacez par votre page de connexion. Chemin relatif pour rester dans le dossier 'html'
                 }, 2000);
             } else {
                 // createUser retourne null en cas d'échec (ex: nom d'utilisateur déjà pris, géré au-dessus)
-                // ou si le hachage a échoué (géré par le manager lui-même)
                 signupMessage.textContent = "Échec de l'inscription. Veuillez réessayer. (Vérifiez la console pour plus de détails)";
                 signupMessage.style.color = 'red';
             }

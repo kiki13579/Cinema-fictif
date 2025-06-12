@@ -59,7 +59,8 @@
     L'attribut 'defer' est recommandé pour les scripts qui n'interfèrent pas avec le rendu initial du DOM. -->
     <script type="module" src="./js/utility/hashing.js" defer></script>
     <script type="module" src="./js/api/localStorageManager.js" defer></script>
-    <script type="module" src="./js/utility/navigationManager.js" defer></script> <!-- Ajout de 'defer' ici -->
+    <script type="module" src="./js/utility/navigationManager.js" defer></script>
+    <script type="module" src="../js/utility/auto_datetime.js" defer></script>
 </head>
 <body class="body-card">
     <header class="header-card">
@@ -220,13 +221,13 @@
     <footer class="footer-card">
         <img src="./asset/img/logo.png" alt="Logo Cinéma Fictif" class="logo-img">
         <div class="footer-links">
-            <a href="#" class="footer-link">A propos de nous</a>
-            <a href="#" class="footer-link">Mentions légales</a>
-            <a href="#" class="footer-link">RGPD</a>
-            <a href="#" class="footer-link">CGU</a>
-            <a href="#" class="footer-link">Copyright</a>
+            <a href="./html/about_us.html" class="footer-link">A propos de nous</a>
+            <a href="./html/legal_mention.html" class="footer-link">Mentions légales</a>
+            <a href="./html/rgpd.html" class="footer-link">RGPD</a>
+            <a href="./html/cgu.html" class="footer-link">CGU</a>
+            <a href="./html/copyright.html" class="footer-link">Copyright</a>
         </div>
-        <p class="f-p">&copy; 12/06/2025 Cinéma Fictif. Design and create by Kamihate. Tous droits réservés.</p>
+        <p class="f-p">&copy; <span id="current-year-footer">2025</span> Cinéma Fictif. Design and create by Kamihate. Tous droits réservés.</p>
     </footer>
 </body>
 </html>

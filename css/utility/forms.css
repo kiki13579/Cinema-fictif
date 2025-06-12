@@ -1,0 +1,47 @@
+form {
+    padding: 2rem;
+    margin: 1rem;
+}
+.form-group {
+    border: var(--background-quinary) solid 1px;
+    padding: 1rem;
+}
+.form-legend {
+    font-size: 1.3rem;
+}
+.form-field {
+    padding: 0.2rem;
+    margin: 0.1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.form-field>div {
+    width: 100%;
+    
+}
+label {
+    font-size: 1.1rem;
+}
+input {
+    padding: 0.25rem;
+}
+@media (max-width: 700px) {
+    form {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    .form-group {
+        border: var(--background-quinary) solid 1px;
+        padding: 0.5rem;
+    }
+    .form-legend {
+        font-size: 0.9rem;
+    }
+    .form-field {
+        padding: 0.1rem;
+        margin: 0.05rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

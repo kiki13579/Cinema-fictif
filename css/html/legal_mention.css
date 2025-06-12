@@ -1,0 +1,138 @@
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligner le contenu en haut */
+    padding: calc(3.75 * var(--spacing-unit)) calc(2.5 * var(--spacing-unit)); /* Ex: 30px 20px */
+    max-width: 65rem; /* Largeur maximale pour le contenu de la page */
+    margin: 0 auto;
+    flex-grow: 1; /* Permet au wrapper de prendre l'espace restant */
+}
+
+/* Styles pour la section principale du contenu */
+.main-content {
+    background-color: var(--background-secondary); /* Fond gris très foncé */
+    padding: calc(5 * var(--spacing-unit)); /* Ex: 40px */
+    border-radius: 0.75rem; /* Ex: 12px */
+    box-shadow: var(--box-shadow);
+    width: 100%; /* Prend toute la largeur disponible dans le wrapper */
+    line-height: 1.6; /* Hauteur de ligne pour la lisibilité */
+    font-size: 1rem; /* Taille de police de base */
+    color: var(--color-text); /* Texte blanc */
+}
+
+/* Titre principal de la page */
+.main-title {
+    font-family: var(--font-h1); /* Utilise la police H1 */
+    font-size: 2.5rem;
+    color: white; /* Texte blanc */
+    margin-bottom: calc(3.75 * var(--spacing-unit)); /* Ex: 30px */
+    text-align: center;
+}
+
+/* Styles pour les sections d'information */
+.info-section {
+    margin-bottom: calc(5 * var(--spacing-unit)); /* Ex: 40px d'espace entre les sections */
+}
+
+.info-section:last-child {
+    margin-bottom: 0; /* Pas de marge sous la dernière section */
+}
+
+/* Sous-titres des sections (h2 dans le HTML) */
+.section-heading {
+    font-family: var(--font-h2); /* Utilise la police H2 */
+    font-size: 1.6rem;
+    color: white; /* Couleur grise foncée pour les sous-titres */
+    margin-bottom: calc(1.875 * var(--spacing-unit)); /* Ex: 15px */
+    border-bottom: 0.0625rem solid var(--background-tertiary); /* Ligne sous le titre */
+    padding-bottom: 0.5rem;
+}
+
+/* Styles pour les sous-titres de niveau 3 (h3 dans le HTML, comme pour l'éditeur, hébergeur) */
+.main-content h3 {
+    font-family: var(--font-h2); /* Utilise la police H2 */
+    font-size: 1.3rem; /* Légèrement plus petit que le h2 */
+    color: var(--background-tertiary); /* Couleur grise plus claire */
+    margin-top: calc(3 * var(--spacing-unit)); /* Espacement au-dessus */
+    margin-bottom: calc(1 * var(--spacing-unit)); /* Espacement en dessous */
+}
+
+
+/* Styles pour les paragraphes */
+.main-content p {
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+/* Styles pour les listes non ordonnées */
+.main-content ul {
+    list-style: disc inside; /* Puces par défaut, à l'intérieur du texte */
+    padding-left: 1.5rem; /* Indentation */
+    margin-bottom: 1rem;
+}
+
+.main-content li {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+/* Styles pour les liens dans le contenu */
+.main-content a {
+    color: var(--link-primary); /* Couleur de lien primaire */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.main-content a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+/* Style pour la date de dernière mise à jour */
+.last-updated {
+    text-align: right;
+    font-size: 0.85rem;
+    color: var(--background-tertiary); /* Gris plus clair */
+    margin-top: calc(3.75 * var(--spacing-unit)); /* Ex: 30px */
+}
+
+/* --- Media Queries pour la Responsivité --- */
+@media (max-width: 62.5rem) { /* 1000px */
+    .page-wrapper {
+        padding: calc(2.5 * var(--spacing-unit)); /* Réduit le padding global (ex: 20px) */
+    }
+
+    .main-content {
+        padding: calc(3.75 * var(--spacing-unit)); /* Ex: 30px */
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .section-heading {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 37.5rem) { /* 600px */
+    .page-wrapper {
+        padding: calc(1.25 * var(--spacing-unit)); /* Réduit encore le padding (ex: 10px) */
+    }
+
+    .main-content {
+        padding: calc(2.5 * var(--spacing-unit)); /* Ex: 20px */
+    }
+
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .section-heading {
+        font-size: 1.2rem;
+    }
+
+    .main-content p, .main-content li {
+        font-size: 0.95rem;
+    }
+}
