@@ -7,7 +7,7 @@ import { initializeLocalStorage, getCurrentUser, getUserByUsername, setCurrentUs
  * Gère la déconnexion de l'utilisateur.
  * Efface l'utilisateur courant du LocalStorage et redirige vers la page d'accueil.
  */
-function handleLogout() {
+export function handleLogout() {
     setCurrentUser(null); // Définir l'utilisateur courant à null (déconnexion)
     console.log("Utilisateur déconnecté.");
     // Redirige vers la page d'accueil (ajustez le chemin si nécessaire)

@@ -1,0 +1,86 @@
+
+        ------ Structure des fichier de mon site ------
+
+        /
+        ├── .github/
+        │   └── worflows/
+        │       └── deploy.yml              
+        ├── asset/
+        │   ├── font/
+        │   │   └── [?]
+        │   └── img/
+        │       └── destination_final_bloodlines.webp
+        │       └── diplodocus.webp
+        │       └── hm.webp
+        │       └── jm.webp
+        │       └── l'ultim_braquage.webp
+        │       └── lets.webp
+        │       └── lm.webp
+        │       └── logo.png
+        │       └── lvdla.webp
+        │       └── mission_impossible.webp
+        │       └── puj.webp
+        │       └── radio_prague.webp
+        │       └── sinners.webp
+        │       └── the_phoenicia_scheme.webp
+        │       └── thunderbolt.webp
+        │       └── uc.webp
+        │       └── until_down.webp
+        ├── css/
+        │   ├── html/
+        │   │   ├── about_us.css
+        │   │   ├── admin_panel.css
+        │   │   ├── cgu.css
+        │   │   ├── copyright.css
+        │   │   ├── home.css
+        │   │   ├── legal_mention.css
+        │   │   ├── login.css
+        │   │   ├── member_space.css
+        │   │   └── signup.css
+        │   ├── templates/
+        │   │   ├── footer.css
+        │   │   ├── header.css
+        │   │   └── main.css
+        │   ├── utility/
+        │   │   ├── burger.css
+        │   │   ├── forms.css
+        │   │   ├── modale.css
+        │   │   └── responsiv.css
+        │   └── root.css
+        ├── html/
+        |   ├── about_us.html
+        │   ├── admin_panel.html
+        │   ├── cgu.html
+        │   ├── copyright.html
+        │   ├── legal_mention.html
+        │   ├── login.html
+        │   ├── member_space.html
+        │   ├── rgpd.html
+        │   └── signup.html
+        ├── js/
+        │   ├── api/
+        │   │   └── localStorageManager.js
+        │   ├── html/
+        │   │   ├── about_us.js
+        │   │   ├── admin_panel.js
+        │   │   ├── cgu.js
+        │   │   ├── copyright.js
+        │   │   ├── home.js
+        │   │   ├── legal_mention.js
+        │   │   ├── login.js
+        │   │   ├── member_space.js
+        │   │   ├── rgpd.js
+        │   │   └── signup.js
+        │   ├── utility/
+        │   │   ├── auto_datetime.js
+        │   │   ├── burger.js
+        │   │   ├── hashing.js
+        │   │   └── navigationManager.js
+        │   └── root.css
+        ├── .htaccess
+        ├── architecture_donnees.json
+        ├── cadrage_projet.md
+        ├── environment_setup.txt
+        ├── index.html
+        ├── robots.txt
+        └── structure_site.txt
