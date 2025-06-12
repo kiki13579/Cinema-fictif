@@ -3,7 +3,7 @@
 // Importe les fonctions nécessaires depuis votre gestionnaire de LocalStorage.
 // Assurez-vous que le chemin est correct en fonction de l'organisation de vos dossiers.
 // Si memberSpace.js est dans js/ et localStorageManager.js est dans js/api/
-import { getCurrentUser, setCurrentUser, initializeLocalStorage, getUserByUsername, verifyUserPassword, updateUser } from '../api/localStorageManager.js';
+import { getCurrentUser, getActivitiesForUser, setCurrentUser, initializeLocalStorage, getUserByUsername, verifyUserPassword, updateUser } from '../api/localStorageManager.js';
 // Importe la fonction de déconnexion depuis votre gestionnaire de navigation.
 import { handleLogout } from '../utility/navigationManager.js'; // Assurez-vous que handleLogout est exporté
 
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Si aucun utilisateur n'est connecté, redirige vers la page de connexion.
     if (!currentUser) {
         console.warn("Aucun utilisateur connecté. Redirection vers la page de connexion.");
-        window.location.href = './login.html'; // Assurez-vous que le chemin est correct
+        window.location.href = '../../index.html'; // Assurez-vous que le chemin est correct
         return; // Arrête l'exécution du script
     }
 
@@ -67,116 +67,145 @@ document.addEventListener('DOMContentLoaded', async () => {
      * @param {string} username Le nom d'utilisateur actuel.
      */
     function renderDashboardContent(username) {
-        dashboardTitle.textContent = "Tableau de bord";
-        const user = getUserByUsername(username); // Récupère les données complètes de l'utilisateur
-        
+    console.log("DEBUG: renderDashboardContent() - Rendu du Tableau de bord pour :", username);
+    dashboardTitle.textContent = "Tableau de bord";
+    const user = getUserByUsername(username); // Récupère les données complètes de l'utilisateur
+
+    if (!user) {
+        console.error("ERREUR: renderDashboardContent() - Données utilisateur non trouvées pour le tableau de bord.");
         cardContainer.innerHTML = `
-            <section class="info-cards-grid ss">
-                <div class="info-card">
-                    <h2 class="card-title">Utilisateur actuel</h2>
-                    <p class="card-value">${username}</p>
-                </div>
-                <div class="info-card">
-                    <h2 class="card-title">Statut de membre</h2>
-                    <p class="card-value">${user?.est_membre ? 'Membre Actif' : 'Visiteur'}</p>
-                </div>
-                <div class="info-card">
-                    <h2 class="card-title">Statut Administrateur</h2>
-                    <p class="card-value">${user?.est_admin ? 'Oui' : 'Non'}</p>
-                </div>
-                <div class="info-card server-info-card">
-                    <h2 class="card-title">Date d'inscription</h2>
-                    <p class="card-value">${user?.date_creation ? new Date(user.date_creation).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' }) : 'N/A'}</p>
-                    <p class="card-sub-value">ID: ${user?.id || 'N/A'}</p>
-                </div>
-            </section>
-
-            <section class="performance-section ss">
-                <h2 class="section-heading">Performances (Simulées)</h2>
-                <a href="#" class="details-link">Plus de détails</a>
-                <div class="performance-chart">
-                    <div class="chart-legend">
-                        <span class="legend-item blue">Activité Fictive (Ko/s)</span>
-                        <span class="legend-item green">Stabilité (Ko/s)</span>
-                    </div>
-                    <div class="chart-area">
-                        <!-- Simulation de barres de graphique -->
-                        <div class="chart-bar blue-bar" style="height: 60%; width: 10%;"></div>
-                        <div class="chart-bar green-bar" style="height: 40%; width: 10%;"></div>
-                        <div class="chart-bar blue-bar" style="height: 70%; width: 10%;"></div>
-                        <div class="chart-bar green-bar" style="height: 50%; width: 10%;"></div>
-                        <div class="chart-bar blue-bar" style="height: 55%; width: 10%;"></div>
-                        <div class="chart-bar green-bar" style="height: 65%; width: 10%;"></div>
-                        <div class="chart-line"></div> </div>
-                    <div class="chart-dates">
-                        <span>Début</span>
-                        <span>Fin</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="most-visited-domains-section ss">
-                <h2 class="section-heading">Activités récentes (Simulées)</h2>
-                <table class="domains-table">
-                    <thead>
-                        <tr>
-                            <th>Catégorie</th>
-                            <th>Description</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Connexion</td>
-                            <td>Accès au tableau de bord</td>
-                            <td>${new Date(Date.now() - 3600000).toLocaleDateString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</td>
-                        </tr>
-                        <tr>
-                            <td>Réservation</td>
-                            <td>Film fictif "Le Retour de la Bobine"</td>
-                            <td>${new Date(Date.now() - 86400000).toLocaleDateString('fr-FR')}</td>
-                        </tr>
-                        <tr>
-                            <td>Profil</td>
-                            <td>Mise à jour des informations</td>
-                            <td>${new Date(Date.now() - 172800000).toLocaleDateString('fr-FR')}</td>
-                        </tr>
-                        <tr>
-                            <td>Déconnexion</td>
-                            <td>Session terminée</td>
-                            <td>${new Date(Date.now() - 7200000).toLocaleDateString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <section class="change-log-section ss">
-                <h2 class="section-heading">Journal des mises à jour du site</h2>
-                <button type="button" class="expand-log-btn" aria-label="Dérouler le journal de changements">ℹ️</button>
-                <div class="log-entries">
-                    <p class="log-date">12-06-2025</p>
-                    <ul class="log-list">
-                        <li>Optimisation de la performance des modules JS.</li>
-                        <li>Amélioration de l'expérience utilisateur mobile.</li>
-                        <li>Mise à jour des règles de sécurité CSP.</li>
-                        <li>Ajout de la page "Droits d'Auteur".</li>
-                        <li>Correction de bugs mineurs sur les formulaires.</li>
-                    </ul>
+            <section class="info-cards-grid">
+                <div class="info-card" style="grid-column: 1 / -1; text-align: center;">
+                    <h2 class="card-title" style="color: var(--color-error);">Erreur de chargement</h2>
+                    <p>Impossible de charger le tableau de bord. Utilisateur introuvable.</p>
                 </div>
             </section>
         `;
-
-        // Ré-attacher les écouteurs d'événements pour le contenu dynamique
-        const expandLogButton = cardContainer.querySelector('.expand-log-btn');
-        const logEntries = cardContainer.querySelector('.log-entries');
-
-        if (expandLogButton && logEntries) {
-            expandLogButton.addEventListener('click', () => {
-                logEntries.classList.toggle('expanded');
-                expandLogButton.setAttribute('aria-label', logEntries.classList.contains('expanded') ? 'Réduire le journal de changements' : 'Dérouler le journal de changements');
-            });
-        }
+        return;
     }
+    
+    // NOUVEAU : Récupère les activités réelles de l'utilisateur
+    const userActivities = getActivitiesForUser(user.id);
+    let activitiesRowsHtml = '';
+    if (userActivities && userActivities.length > 0) {
+        // Limite aux 5 dernières activités pour éviter une table trop longue
+        // La fonction getActivitiesForUser devrait déjà retourner les activités triées du plus récent au plus ancien.
+        const latestActivities = userActivities.slice(0, 5); 
+        activitiesRowsHtml = latestActivities.map(activity => {
+            const activityDate = new Date(activity.timestamp);
+            let dateDisplay;
+            // Si l'activité a eu lieu aujourd'hui, affiche l'heure, sinon la date complète.
+            if (activityDate.toDateString() === new Date().toDateString()) {
+                dateDisplay = activityDate.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+            } else {
+                dateDisplay = activityDate.toLocaleDateString('fr-FR');
+            }
+            return `
+                <tr>
+                    <td>${activity.category}</td>
+                    <td>${activity.description}</td>
+                    <td>${dateDisplay}</td>
+                </tr>
+            `;
+        }).join('');
+        console.log("DEBUG: renderDashboardContent() - Activités récentes générées :", activitiesRowsHtml);
+    } else {
+        activitiesRowsHtml = `<tr><td colspan="3" style="text-align: center; color: var(--background-tertiary);">Aucune activité récente trouvée.</td></tr>`;
+        console.log("DEBUG: renderDashboardContent() - Aucune activité récente à afficher.");
+    }
+    
+    cardContainer.innerHTML = `
+        <section class="info-cards-grid ss">
+            <div class="info-card">
+                <h2 class="card-title">Utilisateur actuel</h2>
+                <p class="card-value">${username}</p>
+            </div>
+            <div class="info-card">
+                <h2 class="card-title">Statut de membre</h2>
+                <p class="card-value">${user?.est_membre ? 'Membre Actif' : 'Visiteur'}</p>
+            </div>
+            <div class="info-card">
+                <h2 class="card-title">Statut Administrateur</h2>
+                <p class="card-value">${user?.est_admin ? 'Oui' : 'Non'}</p>
+            </div>
+            <div class="info-card server-info-card">
+                <h2 class="card-title">Date d'inscription</h2>
+                <p class="card-value">${user?.date_creation ? new Date(user.date_creation).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' }) : 'N/A'}</p>
+                <p class="card-sub-value">ID: ${user?.id || 'N/A'}</p>
+            </div>
+        </section>
+
+        <section class="performance-section ss">
+            <h2 class="section-heading">Performances (Simulées)</h2>
+            <a href="#" class="details-link">Plus de détails</a>
+            <div class="performance-chart">
+                <div class="chart-legend">
+                    <span class="legend-item blue">Activité Fictive (Ko/s)</span>
+                    <span class="legend-item green">Stabilité (Ko/s)</span>
+                </div>
+                <div class="chart-area">
+                    <!-- Simulation de barres de graphique -->
+                    <div class="chart-bar blue-bar" style="height: 60%; width: 10%;"></div>
+                    <div class="chart-bar green-bar" style="height: 40%; width: 10%;"></div>
+                    <div class="chart-bar blue-bar" style="height: 70%; width: 10%;"></div>
+                    <div class="chart-bar green-bar" style="height: 50%; width: 10%;"></div>
+                    <div class="chart-bar blue-bar" style="height: 55%; width: 10%;"></div>
+                    <div class="chart-bar green-bar" style="height: 65%; width: 10%;"></div>
+                    <div class="chart-line"></div> </div>
+                <div class="chart-dates">
+                    <span>Début</span>
+                    <span>Fin</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="most-visited-domains-section ss">
+            <h2 class="section-heading">Activités récentes</h2>
+            <table class="domains-table">
+                <thead>
+                    <tr>
+                        <th>Catégorie</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${activitiesRowsHtml}
+                </tbody>
+            </table>
+        </section>
+
+        <section class="change-log-section ss">
+            <h2 class="section-heading">Journal des mises à jour du site</h2>
+            <button type="button" class="expand-log-btn" aria-label="Dérouler le journal de changements">ℹ️</button>
+            <div class="log-entries">
+                <p class="log-date">12-06-2025</p>
+                <ul class="log-list">
+                    <li>Optimisation de la performance des modules JS.</li>
+                    <li>Amélioration de l'expérience utilisateur mobile.</li>
+                    <li>Mise à jour des règles de sécurité CSP.</li>
+                    <li>Ajout de la page "Droits d'Auteur".</li>
+                    <li>Correction de bugs mineurs sur les formulaires.</li>
+                </ul>
+            </div>
+        </section>
+    `;
+
+    // Ré-attacher les écouteurs d'événements pour le contenu dynamique
+    const expandLogButton = cardContainer.querySelector('.expand-log-btn');
+    const logEntries = cardContainer.querySelector('.log-entries');
+
+    if (expandLogButton && logEntries) {
+        console.log("DEBUG: renderDashboardContent() - Ajout écouteur pour expandLogButton.");
+        expandLogButton.addEventListener('click', () => {
+            logEntries.classList.toggle('expanded');
+            expandLogButton.setAttribute('aria-label', logEntries.classList.contains('expanded') ? 'Réduire le journal de changements' : 'Dérouler le journal de changements');
+            console.log("DEBUG: renderDashboardContent() - Log-entries basculé en:", logEntries.classList.contains('expanded') ? 'expanded' : 'compact');
+        });
+    } else {
+        console.warn("DEBUG: renderDashboardContent() - Bouton d'extension du log ou entrées de log non trouvés.");
+    }
+}
 
     /**
      * Rend le contenu pour la modification des informations utilisateur.

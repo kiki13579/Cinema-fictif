@@ -25,15 +25,14 @@ function _getLocalStorageData() {
         const parsedData = data ? JSON.parse(data) : {};
         console.log("DEBUG: _getLocalStorageData() - Données parsées (avant validation) :", parsedData);
 
-        // S'assure que toutes les propriétés attendues sont présentes, en ajoutant de nouvelles si nécessaire
-        // (utile pour les mises à jour de structure de données)
         const result = {
             Current_user: parsedData.Current_user || null, // Utilisateur actuellement connecté
             users: parsedData.users || [],         // Tableau des utilisateurs enregistrés
             films: parsedData.films || [],         // Tableau des films
             paniers: parsedData.paniers || [],       // Tableau des éléments du panier
             reservations: parsedData.reservations || [],  // Tableau des réservations effectuées
-            activities: parsedData.activities || []     // Tableau des activités des utilisateurs (NOUVEAU)
+            activities: parsedData.activities || [],     // Tableau des activités des utilisateurs
+            siteModifications: parsedData.siteModifications || [] // Tableau des modifications du site
         };
         console.log("DEBUG: _getLocalStorageData() - Données retournées (après validation de structure) :", result);
         return result;
@@ -47,7 +46,8 @@ function _getLocalStorageData() {
             films: [],
             paniers: [],
             reservations: [],
-            activities: []
+            activities: [],
+            siteModifications: []
         };
     }
 }
@@ -533,4 +533,48 @@ export function addReservation(idUtilisateur, idFilm, nombrePlaces, prixTotal) {
     console.log("DEBUG: addReservation() - Activité de réservation enregistrée.");
 
     return newReservation;
+}
+// --- Gestion des MAJ (CRUD) ---
+/**
+ * Ajoute une nouvelle modification du site au LocalStorage.
+ * @param {string} description Une description détaillée de la modification.
+ * @param {string} [category='Général'] La catégorie de la modification (ex: "Fonctionnalité", "Correction de bug", "Design", "Contenu").
+ * Cette fonction appellera _getLocalStorageData() et _setLocalStorageData() en interne.
+ */
+export function addSiteModification(description, category = 'Général') {
+    console.log(`DEBUG: addSiteModification() - Ajout d'une modification du site: "${description}" (Catégorie: "${category}")`);
+    // _getLocalStorageData() est une fonction interne qui récupère les données du LocalStorage.
+    // Assurez-vous qu'elle est définie et qu'elle retourne un objet avec 'siteModifications' par défaut.
+    const data = _getLocalStorageData(); 
+    const newModification = {
+        id: `site_mod_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`, // ID unique
+        description: description,
+        category: category,
+        timestamp: new Date().toISOString() // Horodatage ISO
+    };
+    try {
+        data.siteModifications.push(newModification);
+        // _setLocalStorageData() est une fonction interne qui sauvegarde les données dans le LocalStorage.
+        // Assurez-vous qu'elle est définie.
+        _setLocalStorageData(data);
+        console.log("DEBUG: addSiteModification() - Modification du site ajoutée et sauvegardée :", newModification);
+    } catch (e) {
+        console.error("ERREUR: addSiteModification() - Échec de l'ajout de la modification du site au LocalStorage :", e, { newModification });
+    }
+}
+
+/**
+ * Récupère toutes les modifications du site.
+ * @returns {Array<Object>} Un tableau des modifications du site, triées par date (les plus récentes en premier).
+ * Cette fonction appellera _getLocalStorageData() en interne.
+ */
+export function getSiteModifications() {
+    console.log("DEBUG: getSiteModifications() - Récupération de toutes les modifications du site.");
+    // _getLocalStorageData() est une fonction interne qui récupère les données du LocalStorage.
+    // Assurez-vous qu'elle est définie et qu'elle retourne un objet avec 'siteModifications' par défaut.
+    const data = _getLocalStorageData();
+    // Trie du plus récent au plus ancien
+    const siteModifications = data.siteModifications.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()); 
+    console.log("DEBUG: getSiteModifications() - Modifications du site trouvées :", siteModifications);
+    return siteModifications;
 }
