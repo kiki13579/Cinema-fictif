@@ -4,10 +4,15 @@
 // Assurez-vous que le chemin est correct en fonction de l'organisation de vos dossiers.
 // Si memberSpace.js est dans js/ et localStorageManager.js est dans js/api/
 import { getCurrentUser, getActivitiesForUser, setCurrentUser, initializeLocalStorage, getUserByUsername, verifyUserPassword, updateUser } from '../api/localStorageManager.js';
+import { requireMemberOrAdmin } from '../api/pageAccessManager.js';
+
 // Importe la fonction de déconnexion depuis votre gestionnaire de navigation.
 import { handleLogout } from '../utility/navigationManager.js'; // Assurez-vous que handleLogout est exporté
 
 document.addEventListener('DOMContentLoaded', async () => {
+    if (!requireMemberOrAdmin()) {
+        return; // Redirection déjà effectuée par la fonction
+    }
     // Initialise le LocalStorage si ce n'est pas déjà fait.
     initializeLocalStorage();
 

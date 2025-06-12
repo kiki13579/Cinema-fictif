@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès Refusé</title>
+    <link rel="stylesheet" href="path/to/your/styles.css"> <!-- Adaptez le chemin -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--background-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: var(--background-secondary);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: var(--color-error); /* Ou une couleur d'alerte */
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--text-inverted);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: var(--color-accent-hover);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Accès Refusé</h1>
+        <p>Vous n'avez pas les permissions nécessaires pour accéder à cette page.</p>
+        <p>Veuillez vous connecter avec un compte approprié ou contacter l'administrateur.</p>
+        <a href="./login.html" class="btn">Retour à la page de connexion</a>
+        <a href="./index.html" class="btn" style="margin-left: 15px;">Accueil</a>
+    </div>
+</body>
+</html>
