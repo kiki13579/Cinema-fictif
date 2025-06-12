@@ -145,12 +145,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
                 <div class="chart-area">
                     <!-- Simulation de barres de graphique -->
-                    <div class="chart-bar blue-bar" style="height: 60%; width: 10%;"></div>
-                    <div class="chart-bar green-bar" style="height: 40%; width: 10%;"></div>
-                    <div class="chart-bar blue-bar" style="height: 70%; width: 10%;"></div>
-                    <div class="chart-bar green-bar" style="height: 50%; width: 10%;"></div>
-                    <div class="chart-bar blue-bar" style="height: 55%; width: 10%;"></div>
-                    <div class="chart-bar green-bar" style="height: 65%; width: 10%;"></div>
+                    <div class="chart-bar blue-bar" style="height: 60%; width: 2%;"></div>
+                    <div class="chart-bar green-bar" style="height: 40%; width: 2%;"></div>
+                    <div class="chart-bar blue-bar" style="height: 70%; width: 2%;"></div>
+                    <div class="chart-bar green-bar" style="height: 50%; width: 2%;"></div>
+                    <div class="chart-bar blue-bar" style="height: 55%; width: 2%;"></div>
+                    <div class="chart-bar green-bar" style="height: 65%; width: 2%;"></div>
                     <div class="chart-line"></div> </div>
                 <div class="chart-dates">
                     <span>Début</span>

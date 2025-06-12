@@ -1,7 +1,7 @@
 .member-space-wrapper {
     display: flex;
     flex-grow: 1; /* Permet au wrapper de prendre l'espace restant, poussant le footer vers le bas */
-    max-width: 90rem; /* Largeur maximale pour l'ensemble du tableau de bord (ex: 1440px) */
+    width: 90%; /* Largeur maximale pour l'ensemble du tableau de bord (ex: 1440px) */
     margin: var(--spacing-unit) auto calc(2.5 * var(--spacing-unit)); /* Marge au-dessus, auto latéralement, marge en bas */
     border-radius: 0.75rem; /* Coins arrondis pour l'ensemble */
     overflow: hidden; /* Assure que le contenu n'échappe pas des bords arrondis */
@@ -9,7 +9,6 @@
     background-color: var(--background-quaternary); /* Fond gris foncé pour le wrapper */
     border: 0.0625rem solid var(--background-secondary); /* Bordure subtile */
 }
-
 /* Styles pour la barre latérale de navigation */
 .member-sidebar {
     background-color: var(--background-tertiary); /* Fond gris clair pour la sidebar */
@@ -171,9 +170,6 @@
     margin-bottom: 0.3125rem; /* Ex: 5px */
 }
 
-.info-card.server-info-card {
-    /* Styles spécifiques pour la carte serveur si besoin */
-}
 
 /* Section Performances */
 .performance-section {
@@ -407,13 +403,13 @@
     .member-space-wrapper {
         flex-direction: column; /* Empile sidebar et contenu */
         margin: calc(1.25 * var(--spacing-unit)) auto; /* Marge réduite */
-        border-radius: 0; /* Pas de coins arrondis si le wrapper prend toute la largeur */
     }
 
     .member-sidebar {
-        width: 100%; /* Sidebar prend toute la largeur */
-        border-radius: 0; /* Pas de coins arrondis */
+        width: 90%; /* Sidebar prend toute la largeur */
         padding: calc(1.875 * var(--spacing-unit)); /* Padding réduit */
+        margin: 0 auto;
+        
     }
 
     .member-dashboard-content {
@@ -439,10 +435,6 @@
 }
 
 @media (max-width: 37.5rem) { /* 600px - Mobile */
-    .member-space-wrapper {
-        margin: 0; /* Pas de marge latérale */
-    }
-
     .member-sidebar, .member-dashboard-content {
         padding: calc(1.25 * var(--spacing-unit)); /* Padding encore plus réduit */
     }
