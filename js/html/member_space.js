@@ -124,10 +124,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <h2 class="card-title">Statut de membre</h2>
                 <p class="card-value">${user?.est_membre ? 'Membre Actif' : 'Visiteur'}</p>
             </div>
-            <div class="info-card">
-                <h2 class="card-title">Statut Administrateur</h2>
-                <p class="card-value">${user?.est_admin ? 'Oui' : 'Non'}</p>
-            </div>
             <div class="info-card server-info-card">
                 <h2 class="card-title">Date d'inscription</h2>
                 <p class="card-value">${user?.date_creation ? new Date(user.date_creation).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' }) : 'N/A'}</p>
