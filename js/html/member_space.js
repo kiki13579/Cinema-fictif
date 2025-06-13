@@ -3,7 +3,7 @@
 // Importe les fonctions nécessaires depuis votre gestionnaire de LocalStorage.
 // Assurez-vous que le chemin est correct en fonction de l'organisation de vos dossiers.
 // Si memberSpace.js est dans js/ et localStorageManager.js est dans js/api/
-import { getCurrentUser, getActivitiesForUser, setCurrentUser, initializeLocalStorage, getUserByUsername, verifyUserPassword, updateUser } from '../api/localStorageManager.js';
+import { getCurrentUser, getActivitiesForUser, setCurrentUser, initializeLocalStorage, getUserByUsername, verifyUserPassword, updateUser, addActivity, deleteUser } from '../api/localStorageManager.js';
 import { requireMemberOrAdmin } from '../api/pageAccessManager.js';
 
 // Importe la fonction de déconnexion depuis votre gestionnaire de navigation.
@@ -382,8 +382,35 @@ document.addEventListener('DOMContentLoaded', async () => {
      * Rend le contenu des informations du compte.
      */
     function renderAccountContent() {
+        console.log("DEBUG: renderAccountContent() - Rendu des informations du compte.");
         dashboardTitle.textContent = "Votre compte";
-        const user = getUserByUsername(currentUser);
+        
+        const currentUser = getCurrentUser(); // Récupère l'utilisateur courant
+        if (!currentUser) {
+            console.error("ERREUR: renderAccountContent() - Aucun utilisateur courant trouvé. Impossible d'afficher les détails du compte.");
+            cardContainer.innerHTML = `
+                <div class="account-details-container info-card">
+                    <h2 class="card-title" style="color: var(--color-error);">Erreur de chargement</h2>
+                    <p>Impossible de charger les détails du compte : Utilisateur non connecté.</p>
+                </div>
+            `;
+            return;
+        }
+    
+        const user = getUserByUsername(currentUser); // Récupère les données complètes de l'utilisateur
+        if (!user) {
+            console.error(`ERREUR: renderAccountContent() - Données utilisateur introuvables pour "${currentUser}". Impossible d'afficher les détails.`);
+            cardContainer.innerHTML = `
+                <div class="account-details-container info-card">
+                    <h2 class="card-title" style="color: var(--color-error);">Erreur de chargement</h2>
+                    <p>Impossible de charger les détails du compte : Données utilisateur manquantes pour "${currentUser}".</p>
+                </div>
+            `;
+            return;
+        }
+    
+        console.log("DEBUG: renderAccountContent() - Utilisateur pour les détails du compte :", user);
+    
         cardContainer.innerHTML = `
             <div class="account-details-container info-card">
                 <h2 class="card-title">Détails de votre compte</h2>
@@ -391,8 +418,72 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <p><strong>Identifiant Unique :</strong> ${user?.id || 'N/A'}</p>
                 <p><strong>Date de création du compte :</strong> ${user?.date_creation ? new Date(user.date_creation).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : 'N/A'}</p>
                 <p>Gérez vos préférences de communication et vos paramètres de sécurité ici.</p>
+                <div class="form-field sup-field">
+                    <button type="button" class="btn-sup">Supprimer votre compte ?</button>
+                </div>
+                <p id="deleteAccountMessage" class="message" style="display: none;"></p>
             </div>
         `;
+        console.log("DEBUG: renderAccountContent() - Contenu des détails du compte généré.");
+    
+        // --- LOGIQUE DE SUPPRESSION DE COMPTE ---
+        const deleteButton = cardContainer.querySelector('.btn-sup');
+        const deleteMessageElement = cardContainer.querySelector('#deleteAccountMessage');
+    
+        if (deleteButton) {
+            console.log("DEBUG: renderAccountContent() - Ajout de l'écouteur d'événements pour le bouton de suppression.");
+        
+            // Utilise une fonction nommée pour pouvoir la supprimer et la ré-ajouter
+            const firstClickHandler = async () => {
+                console.log("DEBUG: renderAccountContent() - Premier clic sur le bouton Supprimer votre compte.");
+                displayMessage(deleteMessageElement, "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible. Cliquez à nouveau pour confirmer.", 'error');
+            
+                deleteButton.removeEventListener('click', firstClickHandler); // Supprime le premier écouteur
+                deleteButton.textContent = "Confirmer la suppression";
+                deleteButton.classList.add('btn-danger'); // Ajoute un style pour indiquer une action dangereuse
+            
+                const confirmHandler = async () => {
+                    console.log("DEBUG: renderAccountContent() - Confirmation de suppression de compte.");
+                    hideMessage(deleteMessageElement); // Cache le message de confirmation
+                    displayMessage(deleteMessageElement, "Suppression du compte en cours...", 'info');
+                
+                    const success = deleteUser(user.id); // Appelle la fonction de suppression
+                    if (success) {
+                        displayMessage(deleteMessageElement, "Compte supprimé avec succès ! Redirection...", 'success');
+                        console.log("DEBUG: renderAccountContent() - Compte supprimé, redirection vers la page de connexion.");
+                        // Déconnecte l'utilisateur et redirige (assurez-vous que handleLogout est importé)
+                        await handleLogout();
+                    } else {
+                        displayMessage(deleteMessageElement, "Échec de la suppression du compte. Veuillez réessayer.", 'error');
+                        console.error("ERREUR: renderAccountContent() - Échec de la suppression du compte via deleteUser.");
+                    }
+                    // Réinitialise le bouton après l'opération (en cas d'échec par exemple)
+                    deleteButton.textContent = "Supprimer votre compte ?";
+                    deleteButton.classList.remove('btn-danger');
+                    deleteButton.addEventListener('click', firstClickHandler); // Ré-ajoute le premier écouteur
+                };
+                
+                // Ajoute l'écouteur pour la confirmation, qui ne se déclenchera qu'une seule fois
+                deleteButton.addEventListener('click', confirmHandler, { once: true });
+            
+                // Optionnel: Ajouter un timer pour annuler la deuxième confirmation si pas cliqué dans X secondes
+                setTimeout(() => {
+                    // Vérifie si le bouton est toujours en mode "Confirmer"
+                    if (deleteButton.textContent === "Confirmer la suppression") {
+                        hideMessage(deleteMessageElement); // Cache le message
+                        deleteButton.textContent = "Supprimer votre compte ?";
+                        deleteButton.classList.remove('btn-danger');
+                        deleteButton.removeEventListener('click', confirmHandler); // Supprime le confirmHandler
+                        deleteButton.addEventListener('click', firstClickHandler); // Ré-ajoute le premier écouteur
+                        console.log("DEBUG: renderAccountContent() - Confirmation annulée par timeout.");
+                    }
+                }, 5000); // 5 secondes pour confirmer
+            };
+        
+            deleteButton.addEventListener('click', firstClickHandler); // Ajoute le premier écouteur au chargement
+        } else {
+            console.error("ERREUR: renderAccountContent() - Bouton de suppression de compte non trouvé.");
+        }
     }
 
     // --- Gestion de l'affichage du contenu par défaut et des clics sur la barre latérale ---

@@ -320,6 +320,43 @@ export async function verifyUserPassword(username, password) {
     return isValid;
 }
 
+/**
+ * Supprime un utilisateur du LocalStorage ainsi que toutes ses activités.
+ * @param {string} userId L'ID de l'utilisateur à supprimer.
+ * @returns {boolean} True si l'utilisateur a été supprimé, False sinon.
+ */
+export function deleteUser(userId) {
+    console.log(`DEBUG: deleteUser() - Tentative de suppression de l'utilisateur ID : ${userId}`);
+    const data = _getLocalStorageData();
+    const initialUsersLength = data.users.length;
+    const initialActivitiesLength = data.activities.length;
+
+    // Filtre l'utilisateur à supprimer
+    data.users = data.users.filter(user => user.id !== userId);
+
+    // Filtre les activités associées à cet utilisateur
+    data.activities = data.activities.filter(activity => activity.userId !== userId);
+
+    const userDeleted = data.users.length < initialUsersLength;
+    const activitiesDeleted = data.activities.length < initialActivitiesLength;
+
+    if (userDeleted) {
+        // Si l'utilisateur supprimé est l'utilisateur courant, déconnectez-le.
+        if (data.Current_user && getUserByUsername(data.Current_user)?.id === userId) {
+            data.Current_user = null;
+            console.log(`DEBUG: deleteUser() - L'utilisateur courant ID '${userId}' a été supprimé, Current_user réinitialisé.`);
+        }
+        _setLocalStorageData(data);
+        console.log(`DEBUG: deleteUser() - Utilisateur ID '${userId}' supprimé avec succès. ${activitiesDeleted ? 'Activités associées supprimées.' : 'Aucune activité associée trouvée.'}`);
+        return true;
+    } else {
+        console.warn(`DEBUG: deleteUser() - Utilisateur avec l'ID '${userId}' non trouvé pour la suppression.`);
+        console.error(`ERREUR: deleteUser() - Échec de la suppression de l'utilisateur. Utilisateur ID '${userId}' non trouvé.`);
+        return false;
+    }
+}
+
+
 // --- Gestion des Activités ---
 
 /**
