@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Balise Title : Unique et descriptive pour le SEO de la page Partenariats. -->
-    <title>Partenariats - Cinéma Fictif - Collaborations</title>
+    <title>Partenariats - Cinéma Fictif - Collaborations et Projets</title>
 
     <!-- Méta-description : Résumé concis pour les moteurs de recherche sur les opportunités de partenariat. -->
     <meta name="description" content="Découvrez les opportunités de partenariat avec le Cinéma Fictif. Collaborez pour des événements, promotions ou autres initiatives.">
@@ -40,28 +40,27 @@
     <script type="module" src="../js/utility/navigationManager.js" defer></script>
     <script type="module" src="../js/utility/auto_datetime.js" defer></script>
 </head>
+<body>
 
-<body class="body-card">
+    <!-- Votre header doit être inclus ici. Assurez-vous d'utiliser les mêmes classes et structure que sur vos autres pages. -->
     <header class="header-card">
         <h1 class="header-h1">Cinéma Fictif</h1>
         <nav class="header-nav">
             <div class="desktop-menu">
                 <a href="../index.html" class="list-link -activeall">Accueil</a>
-                <a href="./partners.html" class="list-link -activeall">Partenariats</a>
-                <a href="./signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="./signup.html" class="list-link -activenotmember">Inscription</a>
                 <a href="./login.html" class="list-link -activenotmember">Connexion</a>
                 <a href="./member_space.html" class="list-link -activemember">Espace membre</a>
                 <a href="./admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
-                <a href="#" class="list-link -activeconnect">Deconnexion</a>
+                <a href="#" class="list-link -activeconnect" id="logoutDesktop">Déconnexion</a>
             </div>
             <div class="mobile-nav hidden">
                 <a href="../index.html" class="list-link -activeall">Accueil</a>
-                <a href="./partners.html" class="list-link -activeall">Partenariats</a>
-                <a href="./signup.html" class="list-link  -activenotmember">Inscription</a>
+                <a href="./signup.html" class="list-link -activenotmember">Inscription</a>
                 <a href="./login.html" class="list-link -activenotmember">Connexion</a>
                 <a href="./member_space.html" class="list-link -activemember">Espace membre</a>
                 <a href="./admin_panel.html" class="list-link -activeadmin">Panneau d'administration</a>
-                <a href="#" class="list-link -activeconnect">Deconnexion</a>
+                <a href="#" class="list-link -activeconnect" id="logoutMobile">Déconnexion</a>
             </div>
             <div class="burger-menu" id="burger-menu">
                 <span></span>
@@ -71,6 +70,7 @@
         </nav>
     </header>
 
+    <!-- Conteneur principal de la page pour la mise en page -->
     <div class="page-wrapper">
         <!-- Section principale des Partenariats -->
         <main class="main-content">
@@ -89,7 +89,6 @@
                     <li><strong>Partenariats Événementiels :</strong> Co-création d'événements spéciaux (avant-premières, festivals thématiques) fictifs pour démontrer des fonctionnalités de gestion d'événements.</li>
                     <li><strong>Partenariats Techniques :</strong> Collaboration sur l'intégration de nouvelles technologies, optimisation des performances ou développement de fonctionnalités spécifiques pour des démonstrations.</li>
                     <li><strong>Partenariats Contenus :</strong> Création de contenus fictifs (films, bandes-annonces, affiches) en collaboration pour enrichir l'univers du Cinéma Fictif.</li>
-                    <li><strong>Partenariats formation :</strong> Partenarits pour booster le SEO de mes teammates de formations.</li>
                 </ul>
             </section>
 
@@ -147,7 +146,7 @@
                 <h2 class="section-heading">Article 8 : Évolution des Conditions de Partenariat</h2>
                 <p>Les présentes lignes directrices générales peuvent être adaptées et complétées par des accords spécifiques à chaque partenariat. Le Cinéma Fictif se réserve le droit de faire évoluer ses offres et ses modalités de collaboration afin de s'adapter aux opportunités et aux évolutions technologiques.</p>
             </section>
-            
+
             <section class="info-section">
                 <h2 class="section-heading">Article 9 : Droit Applicable et Résolution des Litiges</h2>
                 <p>Les partenariats avec le Cinéma Fictif sont régis par le droit français. En cas de désaccord ou de litige concernant un partenariat, les parties s'engagent à rechercher une solution amiable. À défaut d'accord, les tribunaux français seront seuls compétents.</p>
@@ -155,40 +154,10 @@
 
             <section class="info-section">
                 <h2 class="section-heading">Article 10 : Nous Contacter pour un Partenariat</h2>
-                <p>Vous êtes intéressé par une collaboration ? N'hésitez pas à nous contacter pour discuter de vos idées et explorer comment nous pourrions travailler ensemble. Envoyez un e-mail à : <a href="mailto:contact.me@mini-cinema-fictif.kamihate.fr">contact.me@mini-cinema-fictif.kamihate.fr</a>.</p>
+                <p>Vous êtes intéressé par une collaboration ? N'hésitez pas à nous contacter pour discuter de vos idées et explorer comment nous pourrions travailler ensemble. Envoyez un e-mail à : <a href="mailto:partenariats@cinemafictif.fr">partenariats@cinemafictif.fr</a>.</p>
             </section>
 
             <p class="last-updated">Dernière mise à jour : <span id="last-update-date"></span></p>
 
         </main>
-
-        <!-- Barre latérale des Partenariats Actuels -->
-        <aside class="partnerships-aside">
-            <section class="info-section"> <!-- Réutilise la classe info-section pour un style cohérent -->
-                <h2 class="section-heading">Nos Partenariats Actuels</h2>
-                <p>Nous sommes fiers de collaborer avec diverses entités qui partagent notre vision de l'innovation et de l'excellence technique. Voici quelques-uns de nos partenaires actuels, dont les contributions enrichissent l'expérience du Cinéma Fictif :</p>
-                <ul class="partnerships-list">
-                    <li>
-                        <strong>Mini cinéma fictif :</strong> Un apprennant comme moi qui fait son site visitez le 
-                        <p class="partner-description"><em>Types :</em> Partenariat formation.</p>
-                        <a href="https://mini-cinema-fictif.valentinguerault.fr"></a>
-                    </li>
-                </ul>
-                <p>Chaque partenariat est une preuve de notre engagement à construire une plateforme collaborative et à explorer de nouvelles facettes du développement web.</p>
-            </section>
-        </aside>
     </div>
-
-    <footer class="footer-card">
-        <img src="../asset/img/logo.png" alt="Logo Cinéma Fictif" class="logo-img">
-        <div class="footer-links">
-            <a href="./about_us.html" class="footer-link">A propos de nous</a>
-            <a href="./legal_mention.html" class="footer-link">Mentions légales</a>
-            <a href="./rgpd.html" class="footer-link">RGPD</a>
-            <a href="./cgu.html" class="footer-link">CGU</a>
-            <a href="./copyright.html" class="footer-link">Copyright</a>
-        </div>
-        <p class="f-p">&copy; <span id="current-year-footer">2025</span> Cinéma Fictif. Design and create by Kamihate. Tous droits réservés.</p>
-    </footer>
-</body>
-</html>
