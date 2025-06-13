@@ -3,23 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez la page d'administration du  Mini Cinéma Fictif projet completement fictif : Modification des prix, affichage du CA fictif . Votre expérience administrateur unique à Châtellerault !">
-    <meta property="og:title" content="Panneau d'administration du Cinéma Fictif - Modification des données">
-    <meta property="og:description" content="Découvrez la page d'administration du  Mini Cinéma Fictif projet completement fictif : Modification des prix, affichage du CA fictif . Votre expérience administrateur unique à Châtellerault !">
+    
+    <!-- Balise Title : Unique et descriptive pour le SEO. -->
+    <title>Panneau d'administration - Cinéma Fictif - Gestion des données</title>
+
+    <!-- Méta-description : Résumé concis de la page pour les moteurs de recherche. -->
+    <meta name="description" content="Découvrez la page d'administration du Mini Cinéma Fictif : Modification des prix, affichage du CA. Votre expérience administrateur unique.">
+    
+    <!-- Balises Open Graph (OG) : Pour un meilleur affichage lorsque la page est partagée sur les réseaux sociaux. -->
+    <meta property="og:title" content="Panneau d'administration - Cinéma Fictif - Gestion des données">
+    <meta property="og:description" content="Découvrez la page d'administration du Mini Cinéma Fictif : Modification des prix, affichage du CA. Votre expérience administrateur unique.">
     <meta property="og:url" content="https://mini-cinema-fictif.kamihate.fr/html/admin_panel.html">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website"> <!-- 'website' est souvent plus approprié pour les pages utilitaires -->
+    
+    <!-- Méta-auteur : Information sur l'auteur de la page. -->
     <meta name="author" content="Kamihate">
-    <meta name="robots" content="index, follow">
+    
+    <!-- Balise Robots : Indique aux moteurs de recherche de NE PAS indexer cette page car c'est un panneau d'administration. -->
+    <meta name="robots" content="noindex, nofollow"> 
+    
+    <!-- Balise Canonique : Évite le contenu dupliqué en indiquant l'URL préférée de cette page. -->
     <link rel="canonical" href="https://mini-cinema-fictif.kamihate.fr/html/admin_panel.html">
+    
+    <!-- Liens CSS : Assurez-vous que les chemins relatifs (../) sont corrects. -->
     <link rel="stylesheet" href="../css/root.css">
-    <link rel="stylesheet" href="../css/html/admin_panel.css">
+    <link rel="stylesheet" href="../css/html/admin_panel.css"> <!-- Votre CSS spécifique pour cette page -->
     <link rel="stylesheet" href="../css/utility/responsiv.css">
+    
+    <!-- Liens Preload : Préchargez UNIQUEMENT les ressources critiques visibles au-dessus de la ligne de flottaison (LCP)
+          spécifiques à cette page, comme le logo ou une image de fond principale. -->
+    <link rel="preload" href="../asset/img/logo.png" as="image"> <!-- Préchargez le logo si visible -->
+
+    <!-- Scripts JavaScript : Chargés en tant que modules. -->
     <script type="module" src="../js/utility/hashing.js" defer></script>
     <script type="module" src="../js/api/localStorageManager.js" defer></script>
-    <script type="module" src="../js/utility/navigationManager.js"></script>
-    <script type="module" src="../js/html/admin_panel.js"></script>
+    <script type="module" src="../js/utility/navigationManager.js" defer></script>
+    <script type="module" src="../js/html/admin_panel.js" defer></script>
     <script type="module" src="../js/utility/auto_datetime.js" defer></script>
-    <title>Panneau d'administration du Cinéma Fictif - Modification des données</title>
 </head>
 <body>
     <header class="header-card">
@@ -48,8 +68,32 @@
             </div>
         </nav>
     </header>
+    <div class="admin-wrapper">
+        <!-- Barre latérale de navigation (Aside dans le concept de l'image) -->
+        <nav class="admin-sidebar">
+            <div class="sidebar-search">
+                <input type="text" placeholder="Rechercher">
+                <button type="button" aria-label="Rechercher">🔍</button>
+            </div>
+            <ul class="sidebar-menu">
+                <button class="btn-sidebar">Tableau de bord</button>
+                <button class="btn-sidebar">Liste des prix</button>
+                <button class="btn-sidebar">Liste des film proposer</button>
+                <button class="btn-sidebar">Liste des utilisateur enregistrer</button>
+                <button class="btn-sidebar">Chiffre d'affaires</button>
+            </ul>
+        </nav>
+
+        <!-- Contenu basique et dynamique -->
+        <main class="admin-content">
+            <h1 class="dashboard-title">Tableau de bord</h1>
+            <section class="card-container">
+                <!-- Contenue dynamique ici -->
+            </section>
+        </main>
+    </div>
     <footer class="footer-card">
-        <img src="./asset/img/logo.png" alt="Logo Cinéma Fictif" class="logo-img">
+        <img src="../asset/img/logo.png" alt="Logo Cinéma Fictif" class="logo-img">
         <div class="footer-links">
             <a href="./about_us.html" class="footer-link">A propos de nous</a>
             <a href="./legal_mention.html" class="footer-link">Mentions légales</a>
