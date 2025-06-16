@@ -160,8 +160,8 @@
     }
 
     .partnerships-aside {
-        width: 100%; /* La sidebar prend toute la largeur une fois empilée */
-        margin-top: 0; /* Pas de marge supérieure si elle est empilée */
+        width: 90%; /* La sidebar prend toute la largeur une fois empilée */
+        margin: 0 auto;
     }
 }
 
@@ -185,5 +185,9 @@
     .main-content p, .main-content li,
     .partnerships-aside p, .partnerships-aside li {
         font-size: 0.95rem;
+    }
+    .partnerships-aside {
+        width: 80%; /* La sidebar prend toute la largeur une fois empilée */
+        margin: 0 auto;
     }
 }
