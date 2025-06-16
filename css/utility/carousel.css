@@ -1,0 +1,91 @@
+.carousel-wrapper {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 0; /* Espace pour les ombres ou si les cartes débordent légèrement */
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: scroll; /* Permet le défilement horizontal */
+    scroll-snap-type: x mandatory; /* Force le snap aux cartes */
+    -webkit-overflow-scrolling: touch; /* Améliore le défilement sur iOS */
+    scroll-behavior: smooth; /* Rend le défilement fluide */
+    gap: 20px; /* Espace entre les cartes */
+    padding-bottom: 10px; /* Pour éviter que la scrollbar ne cache le contenu */
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Cache la scrollbar pour Webkit (Chrome, Safari) */
+}
+
+.carousel-container {
+    -ms-overflow-style: none;  /* Cache la scrollbar pour IE et Edge */
+    scrollbar-width: none;  /* Cache la scrollbar pour Firefox */
+}
+
+.carousel-card {
+    flex: 0 0 auto; /* Empêche les cartes de se réduire */
+    scroll-snap-align: start; /* Aligne le début de la carte lors du snap */
+    width: 240px; /* Largeur de vos cartes, ajustez si nécessaire */
+    background-color: var(--background-secondary);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carousel-title {
+    font-family: var(--font-h2);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 315px; /* Hauteur fixe pour l'image */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-img .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que l'image couvre l'espace sans distorsion */
+    border-radius: 4px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5em;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}

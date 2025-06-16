@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="./css/html/home.css">
     <link rel="stylesheet" href="./css/utility/modale.css">
     <link rel="stylesheet" href="./css/utility/responsiv.css">
+    <link rel="stylesheet" href="./css/utility/carousel.css">
 
     <!-- Liens Preload pour les images LCP (Largest Contentful Paint) :
          Préchargez uniquement les images absolument essentielles et visibles au-dessus de la ligne de flottaison (LCP).
@@ -206,37 +207,41 @@
 
         <section class="section-card section-card-news">
             <h2 class="section-h2">Prochaines sorties</h2>
-            <div class="card-container">
-                <div class="card">
-                    <h3 class="card-title">Destination Final</h3>
-                    <div class="card-img">
-                        <img srcset src="./asset/img/destination_final_bloodlines.webp" alt="destination_final_bloodlines" class="img" min-width="240px" min-height="315px">
+            <div class="carousel-wrapper">
+                <button class="carousel-button prev">❮</button>
+                <div class="carousel-container">
+                    <div class="carousel-card">
+                        <h3 class="carousel-title">Destination Final</h3>
+                        <div class="carousel-img">
+                            <img srcset src="./asset/img/destination_final_bloodlines.webp" alt="destination_final_bloodlines" class="img" min-width="240px" min-height="315px">
+                        </div>
+                    </div>
+                    <div class="carousel-card">
+                        <h3 class="carousel-title">Diplodocus</h3>
+                        <div class="carousel-img">
+                            <img srcset src="./asset/img/diplodocus.webp" alt="diplodocus" class="img" min-width="240px" min-height="315px">
+                        </div>
+                    </div>
+                    <div class="carousel-card">
+                        <h3 class="carousel-title">Hot Milk</h3>
+                        <div class="carousel-img">
+                            <img srcset src="./asset/img/hm.webp" alt="hot-milk" class="img" min-width="240px" min-height="315px">
+                        </div>
+                    </div>
+                    <div class="carousel-card">
+                        <h3 class="carousel-title">Jeunes mères</h3>
+                        <div class="carousel-img">
+                            <img srcset src="./asset/img/jm.webp" alt="jeunes-meres" class="img" min-width="240px" min-height="315px">
+                        </div>
+                    </div>
+                    <div class="carousel-card">
+                        <h3 class="carousel-title">L'ultime braquage</h3>
+                        <div class="carousel-img">
+                            <img srcset src="./asset/img/l'ultim_braquage.webp" alt="l'ultime-braquage" class="img" min-width="240px" min-height="315px">
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <h3 class="card-title">Diplodocus</h3>
-                    <div class="card-img">
-                        <img srcset src="./asset/img/diplodocus.webp" alt="diplodocus" class="img" min-width="240px" min-height="315px">
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">Hot Milk</h3>
-                    <div class="card-img">
-                        <img srcset src="./asset/img/hm.webp" alt="hot-milk" class="img" min-width="240px" min-height="315px">
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">Jeunes mères</h3>
-                    <div class="card-img">
-                        <img srcset src="./asset/img/jm.webp" alt="jeunes-meres" class="img" min-width="240px" min-height="315px">
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">L'ultime braquage</h3>
-                    <div class="card-img">
-                        <img srcset src="./asset/img/l'ultim_braquage.webp" alt="l'ultime-braquage" class="img" min-width="240px" min-height="315px">
-                    </div>
-                </div>
+                <button class="carousel-button next">❯</button>
             </div>
         </section>
 
